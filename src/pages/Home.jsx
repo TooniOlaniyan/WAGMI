@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Hero from '../components/Hero'
 import HowItWorks from '../components/HowItWorks'
 import Pricing from '../components/Pricing'
+import Reviews from '../components/Reviews'
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
         <ChooseUs/>
         <HowItWorks/>
         <Pricing/>
+        <Reviews/>
 
     </Main>
   )

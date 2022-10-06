@@ -56,7 +56,7 @@ function ChooseUs() {
 
 const Main = styled.div`
   display: flex;
-  padding: 1rem 3rem;
+  padding: 3rem 3rem;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;

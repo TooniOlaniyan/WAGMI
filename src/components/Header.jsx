@@ -46,6 +46,9 @@ const Main = styled.div`
   padding: 1rem 3rem;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: ${({ theme }) => theme.text2};
   @media screen and (max-width: 450px) {
     padding: 0.5rem 0.8rem;
     justify-content: space-between;
@@ -156,7 +159,7 @@ const Language = styled.div`
     border-radius: 0.1rem;
     padding: 0.2rem;
     border-color: ${({ theme }) => theme.gray};
-    border: 1px solid ${({ theme }) => theme.bgRed};
+    border-radius: 0.3rem;
     &:focus {
       outline: none;
     }

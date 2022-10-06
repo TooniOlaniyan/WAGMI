@@ -30,7 +30,7 @@ const Main = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: ${({ theme }) => theme.bgBlue};
-  padding: 1rem 3rem;
+  padding: 5rem 3rem;
   gap: 10rem;
   @media screen and (max-width: 450px) {
     flex-direction: column;
