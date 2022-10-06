@@ -7,6 +7,7 @@ export const light = {
   text3: '#000',
   text4: '#fdece8',
   gray: '#6b7280',
+  gray2: '#e5e7eb',
 }
 
 export const dark = {

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import {AiOutlineStar} from 'react-icons/ai'
 import {MdOutlineFlashOn} from 'react-icons/md'
 import { SiFsecure } from 'react-icons/si'
-import flag from '../assets/flag.jpg'
+
 
 function ChooseUs() {
   return (
@@ -75,7 +75,7 @@ const Main = styled.div`
     .line {
       width: 45vw;
       height: 1.6px;
-      background-color: ${({ theme }) => theme.gray};
+      background-color: ${({ theme }) => theme.gray2};
       @media screen and (max-width: 450px) {
        width: 35vw;
         justify-content: space-between;
@@ -158,7 +158,7 @@ const CardContentThree = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.bgBlue};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  /* padding: 1rem; */
+  padding: 0.7rem;
   flex: 1;
   height: 10rem;
   border-radius: 1rem;

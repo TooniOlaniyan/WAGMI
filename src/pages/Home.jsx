@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ChooseUs from '../components/ChooseUs'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
+import HowItWorks from '../components/HowItWorks'
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
         <Header/>
         <Hero/>
         <ChooseUs/>
+        <HowItWorks/>
 
     </Main>
   )
