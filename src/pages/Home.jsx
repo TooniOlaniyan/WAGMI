@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ChooseUs from '../components/ChooseUs'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
 import HowItWorks from '../components/HowItWorks'
@@ -16,6 +17,7 @@ function Home() {
         <HowItWorks/>
         <Pricing/>
         <Reviews/>
+        <Footer/>
 
     </Main>
   )

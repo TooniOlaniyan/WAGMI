@@ -47,6 +47,7 @@ const Main = styled.div`
   justify-content: space-between;
   align-items: center;
   position: sticky;
+  z-index:2;
   top: 0;
   background-color: ${({ theme }) => theme.text2};
   @media screen and (max-width: 450px) {
