@@ -81,6 +81,7 @@ const Image = styled.div`
   img {
     width: 30rem;
     height: 30rem;
+    object-fit: fill;
     border-radius: 0.5rem;
     @media screen and (max-width: 450px) {
         width: 95vw;
