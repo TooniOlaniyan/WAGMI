@@ -70,6 +70,7 @@ const Main = styled.div`
     display: flex;
     justify-content: center;
     gap: 4rem;
+    flex-direction: row-reverse;
     @media screen and (max-width: 450px) {
     flex-direction: column;
     }
@@ -113,6 +114,9 @@ const Peoples = styled.div`
     font-size: 25px;
     font-weight: 900;
     color: ${({ theme }) => theme.bgRed};
+  }
+  p{
+    text-align: center;
   }
   .container {
     display: flex;

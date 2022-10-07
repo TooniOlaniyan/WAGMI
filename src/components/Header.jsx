@@ -17,18 +17,27 @@ function Header() {
      })
    }
   return (
-    <Main data-scroll-section >
+    <Main data-scroll-section>
       <div className='logoContainer'>
         <img src={logo} alt='' />
-        <Link to='/' >
+        <Link to='/'>
           <p className='logo'>Trade Rebublic</p>
         </Link>
       </div>
       {/* middle */}
       <Middle>
-        <Link className='link' to='/about-us'> About Us </Link>
-        <p onClick={() => handleScroll('#pricing')} className='link'> Pricing </p>
-        <Link className='link' to='/contact-us'> Contact Us </Link>
+        <Link className='link' to='/about-us'>
+          {' '}
+          About Us{' '}
+        </Link>
+        <p style={{cursor:'pointer'}} onClick={() => handleScroll('#pricing')} className='link'>
+          {' '}
+          Pricing{' '}
+        </p>
+        <Link className='link' to='/contact-us'>
+          {' '}
+          Contact Us{' '}
+        </Link>
       </Middle>
       {/* right */}
 
@@ -39,14 +48,18 @@ function Header() {
             <option value='english'>ENG</option>
           </select>
         </Language>
-        <div className='signIn' >
-          <p>Log In</p>
-        </div>
-        <div className='signUp'>
-          <p>Sign Up</p>
-        </div>
+        <Link to='/sign-in' >
+          <div className='signIn'>
+            <p>Log In</p>
+          </div>
+        </Link>
+        <Link to='/sign-up'>
+          <div className='signUp'>
+            <p>Sign Up</p>
+          </div>
+        </Link>
       </Right>
-      <Hamburger/>
+      <Hamburger />
     </Main>
   )
 }
@@ -107,10 +120,12 @@ const Middle = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 3rem;
+  
   @media screen and (max-width:450px) {
     display: none;
     
   }
+
 
   .link {
     position: relative;
@@ -130,7 +145,7 @@ const Middle = styled.div`
     }
   }
 
-  a {
+  a,p {
     text-decoration: none;
     font-weight: 600;
     font-size: 17px;
