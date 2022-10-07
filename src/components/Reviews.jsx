@@ -16,7 +16,7 @@ import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
 
 function Reviews() {
   return (
-    <Main>
+    <Main data-scroll-section>
       <div className='top'>
         <h2 className='header'>Reviews</h2>
         <p>Don't just take our word for it</p>

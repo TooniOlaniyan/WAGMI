@@ -7,9 +7,9 @@ import { SiFsecure } from 'react-icons/si'
 
 function ChooseUs() {
   return (
-    <Main>
+    <Main data-scroll-section>
       <div className='flag'>
-        <div className='line' ></div>
+        <div className='line'></div>
         <svg
           width='40'
           height='20'
@@ -28,7 +28,7 @@ function ChooseUs() {
             fill='white'
           ></path>
         </svg>
-        <div className='line' ></div>
+        <div className='line'></div>
       </div>
       <Card>
         <CardContent>

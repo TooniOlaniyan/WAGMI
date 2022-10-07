@@ -4,10 +4,20 @@ import {Link} from 'react-router-dom'
 import {BsGlobe} from 'react-icons/bs'
 import logo from '../assets/logo.jpg'
 import { Slant as Hamburger } from 'hamburger-react'
+import { useLocomotiveScroll } from 'react-locomotive-scroll'
 
 function Header() {
+   const { scroll } = useLocomotiveScroll()
+   const handleScroll = (id) => {
+     let elem = document.querySelector(id)
+     scroll.scrollTo(elem, {
+       offset: '-200',
+       duration: '1000',
+       easing: [0.25, 0.0, 0.35, 1.0],
+     })
+   }
   return (
-    <Main>
+    <Main data-scroll-section >
       <div className='logoContainer'>
         <img src={logo} alt='' />
         <Link to='/' >
@@ -17,7 +27,7 @@ function Header() {
       {/* middle */}
       <Middle>
         <Link className='link' to='/about-us'> About Us </Link>
-        <Link className='link' to='/pricing'> Pricing </Link>
+        <p onClick={() => handleScroll('#pricing')} className='link'> Pricing </p>
         <Link className='link' to='/contact-us'> Contact Us </Link>
       </Middle>
       {/* right */}

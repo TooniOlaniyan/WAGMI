@@ -4,7 +4,7 @@ import hero3 from '../assets/hero3.jpg'
 
 function Hero() {
   return (
-    <Main>
+    <Main data-scroll-section>
       <Text>
         <p>
           Trade Republic is a conservative investment platform for elite
@@ -14,12 +14,10 @@ function Hero() {
           the security of your investments.
         </p>
 
-        <button>
-            Get Started
-        </button>
+        <button>Get Started</button>
       </Text>
       <Image>
-        <img src={hero3} alt="" />
+        <img src={hero3} alt='' />
       </Image>
     </Main>
   )

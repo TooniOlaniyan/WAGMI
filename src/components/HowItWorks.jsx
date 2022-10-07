@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 function HowItWorks() { 
   return (
-    <Main>
+    <Main data-scroll-section>
       <h2 className='header'>Get Started In Minutes</h2>
       <Card>
         <CardContent>
-          <div className='number' >
+          <div className='number'>
             <p>1</p>
           </div>
           <h2>Register</h2>
@@ -15,7 +15,7 @@ function HowItWorks() {
           <button>Sign up</button>
         </CardContent>
         <CardContentTwo>
-          <div className='number' >
+          <div className='number'>
             <p>2</p>
           </div>
           <h2>Deposit and choose a trading plan</h2>
@@ -23,7 +23,7 @@ function HowItWorks() {
           <button>Get started</button>
         </CardContentTwo>
         <CardContentThree>
-          <div className='number' >
+          <div className='number'>
             <p>3</p>
           </div>
           <h2>Get Profits and Withdraw</h2>

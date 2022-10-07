@@ -4,10 +4,10 @@ import { BsFacebook, BsTwitter } from 'react-icons/bs'
 function Footer() {
   const year = new Date().getFullYear()
   return (
-    <Main>
+    <Main data-scroll-section>
       <Top>
         <Details>
-          <p className='head' >Trade Rebublic</p>
+          <p className='head'>Trade Rebublic</p>
           <p className='title'>
             Trade Republic is a conservative investment platform for elite
             Republicans that provides you with the most necessary features that
@@ -55,7 +55,8 @@ function Footer() {
 
       <div className='copyright'>
         <p>
-          &#169; {year} <span>Trade Republic</span> copyright. All rights reserved
+          &#169; {year} <span>Trade Republic</span> copyright. All rights
+          reserved
         </p>
       </div>
     </Main>

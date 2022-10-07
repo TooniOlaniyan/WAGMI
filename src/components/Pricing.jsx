@@ -4,7 +4,7 @@ import {AiOutlineCheck} from 'react-icons/ai'
 
 function Pricing() {
   return (
-    <Main>
+    <Main data-scroll-section id='pricing'>
       <div className='top'>
         <h2 className='header'>Choose from flexible investment plans</h2>
         <p>
@@ -43,7 +43,7 @@ function Pricing() {
           <p className='mostPopular'>Most Popular</p>
         </CardContentTwo>
         <CardContentThree>
-          <p className='head' >Diamond</p>
+          <p className='head'>Diamond</p>
           <p className='price'>$7000 - $25000</p>
           <p>
             <AiOutlineCheck /> Min. deposit: $700{' '}
