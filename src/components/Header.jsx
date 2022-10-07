@@ -27,7 +27,6 @@ function Header() {
           <BsGlobe />
           <select name='language' id=''>
             <option value='english'>ENG</option>
-            <option value='spanish'>Spanish</option>
           </select>
         </Language>
         <div className='signIn' >
@@ -47,7 +46,7 @@ const Main = styled.div`
   justify-content: space-between;
   align-items: center;
   position: sticky;
-  z-index:2;
+  z-index:3;
   top: 0;
   background-color: ${({ theme }) => theme.text2};
   @media screen and (max-width: 450px) {
