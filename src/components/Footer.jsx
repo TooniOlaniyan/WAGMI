@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsFacebook, BsTwitter } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 function Footer() {
   const year = new Date().getFullYear()
   return (
@@ -25,8 +26,15 @@ function Footer() {
         <Links>
           <h2>Links</h2>
           <p>Home</p>
-          <p>About Us</p>
-          <p>Register</p>
+          <Link to='/about-us' >
+            <p>About Us</p>
+          </Link>
+          <Link to='/sign-up' >
+            <p>Register</p>
+          </Link>
+          <Link to='/sign-in'>
+            <p>Invest Now</p>
+          </Link>
         </Links>
         <Address>Address</Address>
       </Top>

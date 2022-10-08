@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../assets/logo.jpg'
 import { BsArrowRight } from 'react-icons/bs'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 function SignIn() {
+  const navigate = useNavigate()
      const [isHidden, setIsHidden] = useState(false)
+
+      const handleSubmit = (e) => {
+        e.preventDefault()
+        navigate('/dashboard')
+      }
   return (
     <Main>
       <div className='logoContainer'>
@@ -40,7 +46,7 @@ function SignIn() {
         </svg>
         <div className='line'></div>
       </div>
-      <Form>
+      <Form onSubmit={handleSubmit} >
         <div className='formControl'>
           <label htmlFor=''>Email*</label>
           <input type='text' placeholder='Email' />
@@ -65,6 +71,11 @@ function SignIn() {
           )}
         </div>
         <button>Log In</button>
+        <div className='forgotPassword' >
+          <Link to='/forgot-password' >
+          <p>Forgot Password ?</p>
+          </Link>
+        </div>
         <div className='checkAccount'>
           <p>Don't have an account?</p>
           <Link to='/sign-up' style={{ textDecoration: 'none' }}>
@@ -84,6 +95,16 @@ const Main = styled.div`
   gap: 1rem;
   background-color: ${({ theme }) => theme.gray2};
   height: 100vh;
+  .forgotPassword {
+    justify-self: flex-end;
+    width: 100%;
+    a {
+      text-decoration: none;
+      text-align: end;
+      color: ${({ theme }) => theme.bgRed};
+      font-weight: 700;
+    }
+  }
   .flag {
     display: flex;
     justify-content: center;
@@ -175,6 +196,7 @@ const Main = styled.div`
       font-size: 20px;
       background-color: ${({ theme }) => theme.bgRed};
       color: ${({ theme }) => theme.text2};
+      cursor: pointer;
       &:focus {
         outline: none;
       }

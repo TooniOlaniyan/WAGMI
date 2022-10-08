@@ -11,6 +11,8 @@ import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import 'locomotive-scroll/dist/locomotive-scroll.css'
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import ForgotPassword from './components/ForgotPassword';
+import Dashboard from './components/Dashboard';
 
 function App() {
    const containerRef = useRef(null)
@@ -34,6 +36,8 @@ function App() {
               <Route path='/contact-us' element={<ContactUs />} />
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
+              <Route path='/forgot-password' element={<ForgotPassword />} />
+              <Route path='/dashboard' element={<Dashboard />} />
             </Routes>
           </Router>
         </ThemeProvider>

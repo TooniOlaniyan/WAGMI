@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 function HowItWorks() { 
   return (
@@ -12,7 +13,9 @@ function HowItWorks() {
           </div>
           <h2>Register</h2>
           <p>Sign up to create your free account</p>
-          <button>Sign up</button>
+          <Link to='/sign-up'>
+            <button>Sign up</button>
+          </Link>
         </CardContent>
         <CardContentTwo>
           <div className='number'>
@@ -20,7 +23,9 @@ function HowItWorks() {
           </div>
           <h2>Deposit and choose a trading plan</h2>
           <p>Invest and Buy digital assets 24/7</p>
-          <button>Get started</button>
+          <Link to='sign-in'>
+            <button>Get started</button>
+          </Link>
         </CardContentTwo>
         <CardContentThree>
           <div className='number'>
@@ -28,7 +33,9 @@ function HowItWorks() {
           </div>
           <h2>Get Profits and Withdraw</h2>
           <p>Sign up to create your free account</p>
-          <button>Get started</button>
+          <Link to='sign-in' >
+            <button>Get started</button>
+          </Link>
         </CardContentThree>
       </Card>
     </Main>

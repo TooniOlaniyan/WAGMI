@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import hero3 from '../assets/hero3.jpg'
+import { Link } from 'react-router-dom'
 
 function Hero() {
   return (
@@ -14,7 +15,9 @@ function Hero() {
           the security of your investments.
         </p>
 
-        <button>Get Started</button>
+        <Link to='/sign-up' >
+          <button>Get Started</button>
+        </Link>
       </Text>
       <Image>
         <img src={hero3} alt='' />

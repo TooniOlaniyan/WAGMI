@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../assets/logo.jpg'
 import { BsArrowRight } from 'react-icons/bs'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 function SignUp() {
+  const navigate = useNavigate()
     const [isHidden , setIsHidden] = useState(false)
     const [confirmIsHidden , setConfirmIsHidden] = useState(false)
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      navigate('/dashboard')
+
+    }
   return (
     <Main>
       <div className='header'>
@@ -41,7 +48,7 @@ function SignUp() {
         <div className='line'></div>
       </div>
 
-      <Form>
+      <Form onSubmit={handleSubmit} >
         <div className='formControl'>
           <label htmlFor=''>Name*</label>
           <input type='text' placeholder='Full Name' />
@@ -508,6 +515,7 @@ const Main = styled.div`
       font-size: 20px;
       background-color: ${({ theme }) => theme.bgRed};
       color: ${({ theme }) => theme.text2};
+      cursor: pointer;
       &:focus {
         outline: none;
       }

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import {AiOutlineCheck} from 'react-icons/ai'
 
 function Pricing() {
@@ -25,7 +26,8 @@ function Pricing() {
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
           </p>
-          <button>Invest Now</button>
+          <Link style={{textDecoration: 'none'}} to='sign-in' >
+          <button>Invest Now</button></Link>
         </CardContent>
         <CardContentTwo>
           <p className='head'>Premium</p>
@@ -39,7 +41,8 @@ function Pricing() {
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
           </p>
-          <button>Invest Now</button>
+          <Link style={{textDecoration: 'none'}} to='sign-in' >
+          <button>Invest Now</button></Link>
           <p className='mostPopular'>Most Popular</p>
         </CardContentTwo>
         <CardContentThree>
@@ -54,7 +57,8 @@ function Pricing() {
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
           </p>
-          <button>Invest Now</button>
+          <Link style={{textDecoration: 'none'}} to='sign-in' >
+          <button>Invest Now</button></Link>
         </CardContentThree>
       </Card>
     </Main>
@@ -137,7 +141,7 @@ const CardContent = styled.div`
     border: none;
     cursor: pointer;
     @media screen and (max-width: 450px) {
-      width: 50%;
+      width: max-content;
       font-size: 17px;
     }
   }
@@ -182,7 +186,7 @@ const CardContentTwo = styled.div`
     border: none;
     cursor: pointer;
     @media screen and (max-width: 450px) {
-      width: 50%;
+      width: max-content;
       font-size: 17px;
     }
   }
@@ -219,7 +223,7 @@ const CardContentThree = styled.div`
     border: none;
     cursor: pointer;
     @media screen and (max-width: 450px) {
-      width: 50%;
+      width: max-content;
       font-size: 17px;
     }
   }
