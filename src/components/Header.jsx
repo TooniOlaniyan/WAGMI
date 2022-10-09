@@ -68,14 +68,25 @@ function Header() {
             </div>
           </Link>
         </Right>
-        <Hamburger
-          toggled={isOpened}
-          toggle={setIsOpened}
-          easing='ease-in'
-          size={25}
-          direction='left'
-          color={isOpened ? '#fff' : '#000'}
-        />
+        <div>
+          <Hamburger
+            toggled={isOpened}
+            onToggle={(toggled) => {
+              if (toggled) {
+                // open a 
+                 document.body.style.overflow = 'hidden'
+              } else {
+                // close a menu
+                 document.body.style.overflow = 'visible'
+              }
+            }}
+            toggle={setIsOpened}
+            easing='ease-in'
+            size={25}
+            direction='left'
+            color={isOpened ? '#fff' : '#000'}
+          />
+        </div>
       </Main>
     </AnimatePresence>
   )
