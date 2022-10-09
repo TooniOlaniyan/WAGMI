@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SliderContent from './SliderContent'
 import testUser from '../assets/testUser.png'
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
-import { BsFillArrowRightCircleFill } from 'react-icons/bs'
+import { BsFillArrowRightCircleFill , BsStarFill } from 'react-icons/bs'
 import hero1 from '../assets/hero1.jpg'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
@@ -23,7 +23,17 @@ function Reviews() {
       </div>
       <Review>
         <p>
-          Hear from our <br /> Customers
+          <span>
+            {' '}
+            Hear from our <br /> Customers
+          </span>
+          <div>
+            <BsStarFill style={{ color: '#f9a602' }} />
+            <BsStarFill style={{ color: '#f9a602' }} />
+            <BsStarFill style={{ color: '#f9a602' }} />
+            <BsStarFill style={{ color: '#f9a602' }} />
+            <BsStarFill style={{ color: '#f9a602' }} />
+          </div>
         </p>
         <Slides>
           <BsFillArrowLeftCircleFill className='left .swiper-custom-navigation swiper-custom-navigation-prev backNavigate' />
@@ -127,6 +137,13 @@ const Review = styled.div`
     font-size: 35px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    div{
+      display: flex;
+      gap: 0.4rem;
+    }
     @media screen and (max-width: 450px) {
      font-size: 20px;
      text-align: center;
@@ -136,7 +153,7 @@ const Review = styled.div`
 const Slides = styled.div`
   height: 40rem;
   width: 40rem;
-  
+
   position: relative;
   @media screen and (max-width: 450px) {
     width: 100%;
@@ -144,8 +161,8 @@ const Slides = styled.div`
   }
   .left {
     position: absolute;
-    left: -1rem;
-    top: 25%;
+    left: 0.5rem;
+    top: 10%;
     color: ${({ theme }) => theme.bgRed};
     font-size: 30px;
     z-index: 2;
@@ -156,8 +173,8 @@ const Slides = styled.div`
   }
   .right {
     position: absolute;
-    right: -1rem;
-    top: 25%;
+    right: 0.5rem;
+    top: 10%;
     color: ${({ theme }) => theme.bgRed};
     font-size: 30px;
     z-index: 2;

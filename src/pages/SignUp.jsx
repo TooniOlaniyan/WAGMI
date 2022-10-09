@@ -63,7 +63,7 @@ function SignUp() {
         </div>
         <div className='formControl'>
           <label htmlFor=''>Phone</label>
-          <input type='text' placeholder='Full Name' />
+          <input className='number' type='number' placeholder='Phone Number' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Password*</label>
@@ -529,7 +529,13 @@ const Main = styled.div`
       width: 100%;
       gap: 0.8rem;
       position: relative;
-      .icon{
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        
+      }
+      .icon {
         position: absolute;
         top: 3rem;
         right: 1.5rem;

@@ -17,7 +17,7 @@ function SliderContent({name , testimony , src , icon}) {
 }
 
 const Main = styled.div`
-  background-color: ${({ theme }) => theme.gray2};
+  background-color: ${({ theme }) => theme.bgBlue};
   height: 40rem;
   width: 40rem;
   display: flex;
@@ -35,6 +35,7 @@ const Main = styled.div`
     line-height: 2.3rem;
     letter-spacing: 0.3rem;
     width: 70%;
+    color: ${({ theme }) => theme.text2};
   }
   .bottom {
     width: 80%;
@@ -44,7 +45,7 @@ const Main = styled.div`
     align-items: center;
     gap: 1rem;
     @media screen and (max-width: 450px) {
-     flex-direction: column;
+      flex-direction: column;
     }
 
     img {
