@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {BsGlobe} from 'react-icons/bs'
@@ -7,6 +7,7 @@ import { Slant as Hamburger } from 'hamburger-react'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 import MobileNav from './MobileNav'
 import { AnimatePresence , motion } from 'framer-motion'
+
 
 function Header() {
   const [isOpened, setIsOpened] = useState(false)
@@ -71,15 +72,6 @@ function Header() {
         <div>
           <Hamburger
             toggled={isOpened}
-            onToggle={(toggled) => {
-              if (toggled) {
-                // open a 
-                 document.body.style.overflow = 'hidden'
-              } else {
-                // close a menu
-                 document.body.style.overflow = 'visible'
-              }
-            }}
             toggle={setIsOpened}
             easing='ease-in'
             size={25}

@@ -9,7 +9,7 @@ import WhoWeAre from '../components/WhoWeAre'
 function AboutUs() {
   return (
     <Main>
-      <Header/>
+      <Header />
       <WhoWeAre/>
       <HowItWorks/>
       <Footer/>
