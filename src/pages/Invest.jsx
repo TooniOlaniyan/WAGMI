@@ -1,20 +1,16 @@
 import React from 'react'
+import DashboardSideBar from '../components/DashboardSideBar'
+import DashboardNav from '../components/DashboardNav'
 import styled from 'styled-components'
-import DashboardNav from './DashboardNav'
-import DashboardSideBar from './DashboardSideBar'
 
-function Dashboard() {
+function Invest() {
   return (
     <Main>
-      <DashboardSideBar/>
+      <DashboardSideBar />
       <MainContainer>
-        <DashboardNav/>
-        <Content>
-          
-        </Content>
-
+        <DashboardNav />
+        <Content></Content>
       </MainContainer>
-      
     </Main>
   )
 }
@@ -39,7 +35,5 @@ const Content = styled.div`
   padding: 0.1rem 6rem 3rem 6rem;
   height: 83vh;
   overflow-y: scroll;
-  
-  `
-
-export default Dashboard
+`
+export default Invest

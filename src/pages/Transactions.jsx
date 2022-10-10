@@ -1,23 +1,19 @@
 import React from 'react'
+import DashboardNav from '../components/DashboardNav'
+import DashboardSideBar from '../components/DashboardSideBar'
 import styled from 'styled-components'
-import DashboardNav from './DashboardNav'
-import DashboardSideBar from './DashboardSideBar'
-
-function Dashboard() {
+function Transactions() {
   return (
     <Main>
-      <DashboardSideBar/>
+      <DashboardSideBar />
       <MainContainer>
-        <DashboardNav/>
-        <Content>
-          
-        </Content>
-
+        <DashboardNav />
+        <Content></Content>
       </MainContainer>
-      
     </Main>
   )
 }
+
 const Main = styled.div`
   display: flex;
 `
@@ -39,7 +35,6 @@ const Content = styled.div`
   padding: 0.1rem 6rem 3rem 6rem;
   height: 83vh;
   overflow-y: scroll;
-  
-  `
+`
 
-export default Dashboard
+export default Transactions

@@ -13,6 +13,10 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ForgotPassword from './components/ForgotPassword';
 import Dashboard from './components/Dashboard';
+import FundAccount from './pages/FundAccount';
+import Transactions from './pages/Transactions';
+import Invest from './pages/Invest';
+import Settings from './pages/Settings';
 
 function App() {
    const containerRef = useRef(null)
@@ -38,6 +42,10 @@ function App() {
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/forgot-password' element={<ForgotPassword />} />
               <Route path='/dashboard' element={<Dashboard />} />
+              <Route path='/fund-account' element={<FundAccount />} />
+              <Route path='/transactions' element={<Transactions />} />
+              <Route path='/invest' element={<Invest />} />
+              <Route path='/settings' element={<Settings />} />
             </Routes>
           </Router>
         </ThemeProvider>
