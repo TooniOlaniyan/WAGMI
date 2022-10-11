@@ -44,6 +44,11 @@ const Content = styled.div`
   padding: 0.1rem 6rem 3rem 6rem;
   height: 83vh;
   overflow-y: scroll;
+  @media screen and (max-width: 640px) {
+    height: 100vh;
+    padding: 0.5rem;
+    
+  }
 `
 
     const ExternalLinks = styled.div`

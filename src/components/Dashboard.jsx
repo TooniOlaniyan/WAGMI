@@ -91,6 +91,10 @@ const Content = styled.div`
   height: 83vh;
   overflow-y: scroll;
   margin-top: 2rem;
+  @media screen and (max-width: 640px) {
+    height: 100vh;
+    padding: 0.5rem;
+  }
   .dashboard {
     p {
       font-size: 30px;
@@ -105,6 +109,10 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: flex-end;
     gap: 0.7rem;
+    @media screen and (max-width: 640px) {
+      flex-direction: column;
+      align-items: center;
+    }
     .cardOne {
       display: flex;
       justify-content: space-between;
@@ -113,6 +121,9 @@ const Content = styled.div`
       padding: 2rem 3rem;
       background-color: ${({ theme }) => theme.bgBlue};
       position: relative;
+      @media screen and (max-width: 640px) {
+        width: 90vw;
+      }
       .amount {
         display: flex;
         flex-direction: column;
@@ -153,6 +164,9 @@ const Content = styled.div`
       padding: 2rem 3rem;
       background-color: ${({ theme }) => theme.gray};
       position: relative;
+      @media screen and (max-width: 640px) {
+        width: 90vw;
+      }
       .amount {
         display: flex;
         flex-direction: column;
@@ -193,6 +207,9 @@ const Content = styled.div`
       padding: 2rem 3rem;
       background-color: ${({ theme }) => theme.bgRed};
       position: relative;
+      @media screen and (max-width: 640px) {
+        width: 90vw;
+      }
       .amount {
         display: flex;
         flex-direction: column;

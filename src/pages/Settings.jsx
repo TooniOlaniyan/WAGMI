@@ -1,15 +1,44 @@
-import React from 'react'
+import React , {useState} from 'react'
 import DashboardSideBar from '../components/DashboardSideBar'
 import DashboardNav from '../components/DashboardNav'
 import styled from 'styled-components'
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import UpdateProfile from '../components/UpdateProfile'
+import UpdatePassword from '../components/UpdatePassword'
 
 function Settings() {
+  const [isActive, setIsActive] = useState('profile')
   return (
     <Main>
       <DashboardSideBar />
       <MainContainer>
         <DashboardNav />
-        <Content></Content>
+        <Content>
+          <Setting>
+            <div
+              onClick={() => setIsActive('profile')}
+              className='settingOptions'
+            >
+              <p>Profile Setting</p>
+              <MdKeyboardArrowRight className='icons' />
+            </div>
+            <div
+              onClick={() => setIsActive('security')}
+              className='settingOptions'
+            >
+              <p>Security Setting</p>
+              <MdKeyboardArrowRight className='icons' />
+            </div>
+            <div className='settingOptions'>
+              <p>Live Chat</p>
+              <MdKeyboardArrowRight className='icons' />
+            </div>
+          </Setting>
+          <BottomContainer>
+            {isActive === 'profile' && <UpdateProfile />}
+            {isActive === 'security' && <UpdatePassword />}
+          </BottomContainer>
+        </Content>
       </MainContainer>
     </Main>
   )
@@ -34,8 +63,60 @@ const Content = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   padding: 0.1rem 6rem 3rem 6rem;
-  height: 83vh;
+  height: 87vh;
   overflow-y: scroll;
+  align-items: center;
+  @media screen and (max-width: 640px) {
+    height: 100vh;
+    padding: 0.5rem;
+    /* align-items: flex-start; */
+  }
 `
+  const Setting = styled.div`
+    background-color: ${({ theme }) => theme.gray2};
+    padding: 4rem;
+    height: 60vh;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-direction: column;
+    transition: all 0.5s;
+    width: 100%;
+    @media screen and (max-width: 640px) {
+      padding: 2rem;
+    }
+
+    .settingOptions {
+      display: flex;
+      align-items: center;
+      border: 2px solid ${({ theme }) => theme.bgRed};
+      width: 70%;
+      padding: 1.2rem 2rem;
+      justify-content: space-between;
+      border-radius: 1.2rem;
+      cursor: pointer;
+      @media screen and (max-width: 640px) {
+        width: 100%;
+        padding: 1.2rem 1rem;
+      }
+
+      p {
+        font-weight: 900;
+        color: ${({ theme }) => theme.text1};
+        font-size: 18px;
+      }
+      .icons {
+        color: ${({ theme }) => theme.text1};
+        font-size: 20px;
+        border: 2px solid ${({ theme }) => theme.text1};
+        border-radius: 0.5rem;
+      }
+    }
+  `
+  const BottomContainer = styled.div`
+    
+  `
 
 export default Settings

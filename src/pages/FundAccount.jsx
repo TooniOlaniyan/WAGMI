@@ -54,6 +54,11 @@ const Content = styled.div`
   padding: 0.1rem 6rem 3rem 6rem;
   height: 83vh;
   overflow-y: scroll;
+  @media screen and (max-width: 640px) {
+    height: 100vh;
+    padding: 0.5rem;
+    align-items: flex-start;
+  }
   .fund {
     p {
       font-size: 30px;
@@ -76,6 +81,9 @@ const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 640px) {
+      width: 98%;
+    }
     input {
       flex: 12;
       padding: 0.5rem;
@@ -85,6 +93,9 @@ const Content = styled.div`
       border: 2px solid ${({ theme }) => theme.bgBlue};
       &::placeholder {
         color: ${({ theme }) => theme.gray2};
+      }
+      @media screen and (max-width: 640px) {
+       font-size: 13px;
       }
     }
     svg {
