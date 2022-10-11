@@ -128,8 +128,8 @@ const Main = styled.div`
   }
   .logo {
     img {
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
     }
   }
   @media screen and (max-width: 640px) {

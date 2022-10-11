@@ -2,6 +2,8 @@ import React from 'react'
 import DashboardSideBar from '../components/DashboardSideBar'
 import DashboardNav from '../components/DashboardNav'
 import styled from 'styled-components'
+import Pricing from '../components/Pricing'
+import { Link } from 'react-router-dom'
 
 function Invest() {
   return (
@@ -9,7 +11,14 @@ function Invest() {
       <DashboardSideBar />
       <MainContainer>
         <DashboardNav />
-        <Content></Content>
+        <Content>
+          <Pricing />
+          <ExternalLinks>
+            <Link to='/'>Trade Republic</Link>
+            <p>|</p>
+            <Link to='/contact-us'>Contact Us</Link>
+          </ExternalLinks>
+        </Content>
       </MainContainer>
     </Main>
   )
@@ -36,4 +45,13 @@ const Content = styled.div`
   height: 83vh;
   overflow-y: scroll;
 `
+
+    const ExternalLinks = styled.div`
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      a {
+        color: ${({ theme }) => theme.gray};
+      }
+    `
 export default Invest

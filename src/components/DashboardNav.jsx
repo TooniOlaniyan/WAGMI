@@ -1,10 +1,16 @@
 import React, {useState} from 'react'
 import { Slant as Hamburger } from 'hamburger-react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
 
 
 function DashboardNav() {
 const [isOpened, setIsOpened] = useState(false)
+const navigate = useNavigate()
+const handleClick = () => {
+  navigate('/sign-in')
+
+}
   return (
     <Navigation>
       <div className='greetings'>
@@ -14,7 +20,7 @@ const [isOpened, setIsOpened] = useState(false)
       </div>
 
       <div>
-        <div className='logOut'>
+        <div onClick={handleClick} className='logOut'>
           <svg
             className='logOutBtn'
             width='134'
@@ -51,19 +57,20 @@ const [isOpened, setIsOpened] = useState(false)
 }
 const Navigation = styled.div`
   padding: 0.5rem 7rem;
-  height: 6rem;
+  height: 5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.5;
-  background-color: ${({ theme }) => theme.gray2};
-  /* background-color: #293462; */
+  /* background-color: ${({ theme }) => theme.gray2}; */
   @media screen and (max-width: 640px) {
   }
   .greetings {
     align-self: flex-end;
     p {
       font-size: 18px;
+      color: ${({ theme }) => theme.text1};
+      font-weight: 500;
       span {
         font-size: 19px;
         font-weight: 700;
@@ -72,6 +79,9 @@ const Navigation = styled.div`
     }
   }
   .logOut {
+    .logOutBtn {
+      cursor: pointer;
+    }
     .hamburger-react {
       display: none;
       @media screen and (max-width: 640px) {
