@@ -246,7 +246,11 @@ const Content = styled.div`
   const Chart = styled.div`
     width: 100%;
     height: 150rem;
+    /* background-color: red; */
     margin-top: 3rem;
+    @media screen and (max-width: 640px) {
+      height: 610px;
+    }
     .liveData {
       margin-bottom: 2rem;
       p {
@@ -260,6 +264,9 @@ const Content = styled.div`
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      @media screen and (max-width: 640px) {
+        margin-top: 6rem;
+      }
       a {
         color: ${({ theme }) => theme.gray};
       }

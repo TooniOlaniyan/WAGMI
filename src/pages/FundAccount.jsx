@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DashboardSideBar from '../components/DashboardSideBar'
 import DashboardNav from '../components/DashboardNav'
 import styled from 'styled-components'
 import {FiCopy} from 'react-icons/fi'
+import TransactionHistory from '../components/TransactionHistory'
+import { Link } from 'react-router-dom'
+import { FaArrowRight } from 'react-icons/fa'
+import Withdrawl from '../components/modals/Withdrawl'
 function FundAccount() {
+  const [request , setRequest] = useState(false)
   const handleCopy = () => {
     const walletAddress = 'bc1qh2ntfz4g7whl5chys0j94xv82du47mfh580y03'
     const data = navigator.clipboard.writeText(walletAddress)
@@ -14,6 +19,7 @@ function FundAccount() {
       <MainContainer>
         <DashboardNav />
         <Content>
+          {request && <Withdrawl setRequest={setRequest} />}
           <div className='fund'>
             <p>Fund Account</p>
           </div>
@@ -27,6 +33,24 @@ function FundAccount() {
               disabled
             />
             <FiCopy onClick={handleCopy} />
+          </div>
+          <Request>
+            <div onClick={() => setRequest(true)} className='request'>
+              <p>Request Widthdrawl</p>
+            </div>
+          </Request>
+          <TransactionTable>
+            <div className='history'>
+              <p>See Transaction History</p>
+            </div>
+            <TransactionHistory />
+          </TransactionTable>
+          <div className='getMore'>
+            <Link to='/transactions'>
+              <p>
+                Get More <FaArrowRight />
+              </p>
+            </Link>
           </div>
         </Content>
       </MainContainer>
@@ -95,7 +119,7 @@ const Content = styled.div`
         color: ${({ theme }) => theme.gray2};
       }
       @media screen and (max-width: 640px) {
-       font-size: 13px;
+        font-size: 13px;
       }
     }
     svg {
@@ -108,6 +132,47 @@ const Content = styled.div`
       border-radius: 0.5rem;
       cursor: pointer;
     }
+  }
+  .getMore {
+    background-color: ${({ theme }) => theme.bgRed};
+    padding: 1rem;
+    border-radius: 1.3rem;
+    display: flex;
+    align-self: flex-end;
+    a {
+      text-decoration: none;
+    }
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      color: ${({ theme }) => theme.text2};
+    }
+  }
+`
+const TransactionTable = styled.div`
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  .history {
+    width: fit-content;
+    padding: 0.7rem;
+    border-radius: 2rem;
+    font-size: 15px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.gray};
+    border: 3px solid ${({ theme }) => theme.bgRed};
+  }
+`
+const Request = styled.div`
+text-align: end;
+  .request {
+    font-size: 18px;
+    font-weight: 800;
+    color: ${({ theme }) => theme.gray};
+    cursor: pointer;
   }
 `
 
