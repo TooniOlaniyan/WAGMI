@@ -17,19 +17,19 @@ function Settings() {
           <Setting>
             <div
               onClick={() => setIsActive('profile')}
-              className='settingOptions'
+              className={isActive ==='profile' ? 'settingOptions': 'notActive'}
             >
               <p>Profile Setting</p>
               <MdKeyboardArrowRight className='icons' />
             </div>
             <div
               onClick={() => setIsActive('security')}
-              className='settingOptions'
+                className={isActive ==='profile' ? 'settingOptions': 'notActive'}
             >
               <p>Security Setting</p>
               <MdKeyboardArrowRight className='icons' />
             </div>
-            <div className='settingOptions'>
+            <div   className={isActive ==='profile' ? 'settingOptions': 'notActive'}>
               <p>Live Chat</p>
               <MdKeyboardArrowRight className='icons' />
             </div>
@@ -105,6 +105,27 @@ const Content = styled.div`
       p {
         font-weight: 900;
         color: ${({ theme }) => theme.text1};
+        font-size: 18px;
+      }
+      .icons {
+        color: ${({ theme }) => theme.text1};
+        font-size: 20px;
+        border: 2px solid ${({ theme }) => theme.text1};
+        border-radius: 0.5rem;
+      }
+    }
+    .notActive {
+      display: flex;
+      align-items: center;
+      border: 2px solid ${({ theme }) => theme.bgBlue};
+      width: 70%;
+      padding: 1.2rem 2rem;
+      justify-content: space-between;
+      border-radius: 1.2rem;
+      cursor: pointer;
+      p {
+        font-weight: 900;
+        color: ${({ theme }) => theme.bgRed};
         font-size: 18px;
       }
       .icons {

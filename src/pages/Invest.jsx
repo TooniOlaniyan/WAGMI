@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DashboardSideBar from '../components/DashboardSideBar'
 import DashboardNav from '../components/DashboardNav'
 import styled from 'styled-components'
@@ -6,6 +6,7 @@ import DashboardPricing from '../components/DashboardPricing'
 import { Link } from 'react-router-dom'
 
 function Invest() {
+
   return (
     <Main>
       <DashboardSideBar />

@@ -1,8 +1,14 @@
-import React from 'react'
+import React , {useState} from 'react'
 import styled from 'styled-components'
 import { AiOutlineCheck } from 'react-icons/ai'
+import Regular from './modals/Regular'
+import Premium from './modals/Premium'
+import Diamond from './modals/Diamond'
 
-function Pricing() {
+function DashboardPricing() {
+    const [regular, setRegular] = useState(false)
+    const [premium, setPremium] = useState(false)
+    const [diamond, setDiamond] = useState(false)
   return (
     <Main>
       <div className='top'>
@@ -12,6 +18,9 @@ function Pricing() {
           while, minimizing any possible risk and offer a high-quality service.
         </p>
       </div>
+      {regular && <Regular setRegular={setRegular} />}
+      {premium && <Premium setPremium={setPremium} />}
+      {diamond && <Diamond setDiamond={setDiamond} />}
       <Card>
         <CardContent>
           <p className='head'>Regular</p>
@@ -25,8 +34,8 @@ function Pricing() {
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
           </p>
-         
-            <button>Invest Now</button>
+
+          <button onClick={() => setRegular(true)}>Invest Now</button>
         </CardContent>
         <CardContentTwo>
           <p className='head'>Premium</p>
@@ -40,8 +49,8 @@ function Pricing() {
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
           </p>
-         
-            <button>Invest Now</button>
+
+          <button onClick={() => setPremium(true)}>Invest Now</button>
           <p className='mostPopular'>Most Popular</p>
         </CardContentTwo>
         <CardContentThree>
@@ -56,8 +65,8 @@ function Pricing() {
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
           </p>
-         
-            <button>Invest Now</button>
+
+          <button onClick={() => setDiamond(true)}>Invest Now</button>
         </CardContentThree>
       </Card>
     </Main>
@@ -228,4 +237,4 @@ const CardContentThree = styled.div`
   }
 `
 
-export default Pricing
+export default DashboardPricing
