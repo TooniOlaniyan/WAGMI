@@ -2,7 +2,7 @@ import React from 'react'
 import DashboardSideBar from '../components/DashboardSideBar'
 import DashboardNav from '../components/DashboardNav'
 import styled from 'styled-components'
-import Pricing from '../components/Pricing'
+import DashboardPricing from '../components/DashboardPricing'
 import { Link } from 'react-router-dom'
 
 function Invest() {
@@ -12,7 +12,7 @@ function Invest() {
       <MainContainer>
         <DashboardNav />
         <Content>
-          <Pricing />
+          <DashboardPricing/>
           <ExternalLinks>
             <Link to='/'>Trade Republic</Link>
             <p>|</p>
