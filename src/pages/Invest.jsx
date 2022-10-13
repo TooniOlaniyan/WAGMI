@@ -14,11 +14,11 @@ function Invest() {
         <DashboardNav />
         <Content>
           <DashboardPricing/>
-          <ExternalLinks>
+          {/* <ExternalLinks>
             <Link to='/'>Trade Republic</Link>
             <p>|</p>
             <Link to='/contact-us'>Contact Us</Link>
-          </ExternalLinks>
+          </ExternalLinks> */}
         </Content>
       </MainContainer>
     </Main>
@@ -47,6 +47,7 @@ const Content = styled.div`
   overflow-y: scroll;
   @media screen and (max-width: 640px) {
     height: 100vh;
+    width: 100vw;
     padding: 0.5rem;
     
   }

@@ -11,6 +11,9 @@ function DashboardPricing() {
     const [diamond, setDiamond] = useState(false)
   return (
     <Main>
+      {regular && <Regular setRegular={setRegular} />}
+      {premium && <Premium setPremium={setPremium} />}
+      {diamond && <Diamond setDiamond={setDiamond} />}
       <div className='top'>
         <h2 className='header'>Choose from flexible investment plans</h2>
         <p>
@@ -18,9 +21,7 @@ function DashboardPricing() {
           while, minimizing any possible risk and offer a high-quality service.
         </p>
       </div>
-      {regular && <Regular setRegular={setRegular} />}
-      {premium && <Premium setPremium={setPremium} />}
-      {diamond && <Diamond setDiamond={setDiamond} />}
+
       <Card>
         <CardContent>
           <p className='head'>Regular</p>
@@ -81,7 +82,9 @@ const Main = styled.div`
   gap: 4rem;
   flex-direction: column;
   margin-top: 4rem;
-  background-color: ${({ theme }) => theme.text1};
+ 
+
+
   .top {
     display: flex;
     flex-direction: column;
@@ -90,7 +93,7 @@ const Main = styled.div`
     h2 {
       font-size: 30px;
       font-weight: 900;
-      color: ${({ theme }) => theme.text2};
+      color: ${({ theme }) => theme.text1};
       @media screen and (max-width: 450px) {
         font-size: 25px;
         text-align: center;
@@ -125,6 +128,7 @@ const CardContent = styled.div`
   gap: 2rem;
   align-items: center;
   background-color: ${({ theme }) => theme.text2};
+  box-shadow: rgba(100, 100, 111, 0.099) 0px 7px 29px 0px;
   padding: 2rem 1rem;
   flex: 1;
   @media screen and (max-width: 450px) {
@@ -161,6 +165,7 @@ const CardContentTwo = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: ${({ theme }) => theme.text2};
+  box-shadow: rgba(100, 100, 111, 0.099) 0px 7px 29px 0px;
   padding: 4rem 1rem;
   flex: 1;
   gap: 2rem;
@@ -206,6 +211,7 @@ const CardContentThree = styled.div`
   gap: 1rem;
   align-items: center;
   background-color: ${({ theme }) => theme.text2};
+  box-shadow: rgba(100, 100, 111, 0.099) 0px 7px 29px 0px;
   padding: 2rem 1rem;
   flex: 1;
   gap: 2rem;

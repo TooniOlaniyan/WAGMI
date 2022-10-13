@@ -99,13 +99,13 @@ const Content = styled.div`
       cursor: pointer;
       @media screen and (max-width: 640px) {
         width: 100%;
-        padding: 1.2rem 1rem;
+        padding: 1rem;
       }
 
       p {
         font-weight: 900;
         color: ${({ theme }) => theme.text1};
-        font-size: 18px;
+        font-size: 15px;
       }
       .icons {
         color: ${({ theme }) => theme.text1};
@@ -122,11 +122,16 @@ const Content = styled.div`
       padding: 1.2rem 2rem;
       justify-content: space-between;
       border-radius: 1.2rem;
+      @media screen and (max-width: 640px) {
+        width: 100%;
+        padding: 1rem;
+      }
+
       cursor: pointer;
       p {
         font-weight: 900;
         color: ${({ theme }) => theme.bgRed};
-        font-size: 18px;
+        font-size: 15px;
       }
       .icons {
         color: ${({ theme }) => theme.text1};

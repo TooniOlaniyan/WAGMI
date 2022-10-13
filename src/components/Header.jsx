@@ -87,10 +87,13 @@ const Main = styled.div`
   display: flex;
   padding: 1rem 3rem;
   justify-content: space-between;
+
   align-items: center;
   position: sticky;
   z-index:3;
   top: 0;
+  
+  
   background-color: ${({ theme }) => theme.text2};
   @media screen and (max-width: 450px) {
     padding: 0.5rem 0.8rem;
@@ -100,6 +103,7 @@ const Main = styled.div`
     display: flex;
     justify-content: center;
     align-items: baseline;
+    flex: 1;
     /* background-color: green; */
     a {
       text-decoration: none;
@@ -140,6 +144,7 @@ const Middle = styled.div`
   justify-content: space-around;
   align-items: center;
   gap: 3rem;
+  flex: 1;
   
   @media screen and (max-width:450px) {
     display: none;
@@ -174,7 +179,8 @@ const Middle = styled.div`
 `
 const Right = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  flex: 1;
   align-items: center;
   gap: 1rem;
   @media screen and (max-width: 450px) {
