@@ -102,7 +102,7 @@ const Main = styled.div`
       font-size: 17px;
       font-weight: 700;
       color: ${({ theme }) => theme.gray};
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         font-size: 25px;
         text-align: center;
       }
@@ -113,7 +113,7 @@ const Main = styled.div`
       text-align: center;
       margin-top: 1rem;
       font-weight: 900;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 100%;
         font-size: 27px;
       }
@@ -127,7 +127,7 @@ const Review = styled.div`
   align-items: flex-start;
   /* background-color: green; */
   width: 100%;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     flex-direction: column;
     align-items: center;
     gap: 4rem;
@@ -144,7 +144,7 @@ const Review = styled.div`
       display: flex;
       gap: 0.4rem;
     }
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
      font-size: 20px;
      text-align: center;
     }
@@ -155,7 +155,7 @@ const Slides = styled.div`
   width: 40rem;
 
   position: relative;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 100%;
     margin: 0 auto;
   }
@@ -167,7 +167,7 @@ const Slides = styled.div`
     font-size: 30px;
     z-index: 2;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       display: none;
     }
   }
@@ -179,7 +179,7 @@ const Slides = styled.div`
     font-size: 30px;
     z-index: 2;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       display: none;
     }
   }

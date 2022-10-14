@@ -62,7 +62,7 @@ const Main = styled.div`
   align-items: center;
   gap: 3rem;
   margin-top: 4rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     padding: 0.5rem 0.8rem;
     justify-content: space-between;
     margin-top: 1rem;
@@ -76,7 +76,7 @@ const Main = styled.div`
       width: 45vw;
       height: 1.6px;
       background-color: ${({ theme }) => theme.gray2};
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
        width: 35vw;
         justify-content: space-between;
       }
@@ -91,7 +91,7 @@ const Card = styled.div`
   align-items: center;
   gap: 2rem;
   /* background-color: red; */
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
    flex-direction: column;
   }
 `
@@ -108,7 +108,7 @@ const CardContent = styled.div`
   height: 10rem;
   border-radius: 1rem;
   color: ${({ theme }) => theme.text4};
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
    width: 90vw;
    padding:1rem;
   }
@@ -135,7 +135,7 @@ const CardContentTwo = styled.div`
   flex: 1;
   height: 10rem;
   border-radius: 1rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 90vw;
     padding:1rem;
   }
@@ -163,7 +163,7 @@ const CardContentThree = styled.div`
   height: 10rem;
   border-radius: 1rem;
   color: ${({ theme }) => theme.text4};
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 90vw;
     padding:1rem;
   }

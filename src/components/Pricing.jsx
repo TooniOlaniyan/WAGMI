@@ -83,7 +83,7 @@ const Main = styled.div`
       font-size: 30px;
       font-weight: 900;
       color: ${({ theme }) => theme.text2};
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         font-size: 25px;
         text-align: center;
       }
@@ -93,7 +93,7 @@ const Main = styled.div`
       width: 70%;
       text-align: center;
       margin-top: 1rem;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 100%;
       }
     }
@@ -105,7 +105,7 @@ const Card = styled.div`
   align-items: center;
   gap: 2rem;
   /* background-color: red; */
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     flex-direction: column;
     gap: 3rem;
   }
@@ -119,7 +119,7 @@ const CardContent = styled.div`
   background-color: ${({ theme }) => theme.text2};
   padding: 2rem 1rem;
   flex: 1;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 80vw;
   }
   .head {
@@ -140,7 +140,7 @@ const CardContent = styled.div`
     color: ${({ theme }) => theme.text4};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: max-content;
       font-size: 17px;
     }
@@ -157,7 +157,7 @@ const CardContentTwo = styled.div`
   flex: 1;
   gap: 2rem;
   position: relative;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 80vw;
   }
   .head {
@@ -185,7 +185,7 @@ const CardContentTwo = styled.div`
     color: ${({ theme }) => theme.text4};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: max-content;
       font-size: 17px;
     }
@@ -201,7 +201,7 @@ const CardContentThree = styled.div`
   padding: 2rem 1rem;
   flex: 1;
   gap: 2rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 80vw;
   }
   .head {
@@ -222,7 +222,7 @@ const CardContentThree = styled.div`
     color: ${({ theme }) => theme.text4};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: max-content;
       font-size: 17px;
     }

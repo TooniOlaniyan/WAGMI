@@ -89,7 +89,7 @@ const Main = styled.div`
       height: 1.6px;
       background-color: ${({ theme }) => theme.gray};
       opacity: 0.6;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 35vw;
         justify-content: space-between;
       }
@@ -98,7 +98,7 @@ const Main = styled.div`
   .copyright {
     p {
       color: ${({ theme }) => theme.gray};
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
        text-align: center;
       }
     }
@@ -110,7 +110,7 @@ const Details = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 0.5rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
   align-items: center;
   }
   .head {
@@ -137,7 +137,7 @@ const Socials = styled.div`
     opacity: 0.7;
     .icon {
       font-size: 25px;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
        font-size: 20px;
       }
     }
@@ -148,7 +148,7 @@ const Top = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 3rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
  flex-direction: column;
   }
 `

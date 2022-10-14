@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link , useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo.png'
 import { BsArrowRight } from 'react-icons/bs'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 function SignUp() {
@@ -434,7 +434,7 @@ const Main = styled.div`
       height: 1.6px;
       background-color: ${({ theme }) => theme.gray};
       opacity: 0.6;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 35vw;
         justify-content: space-between;
       }
@@ -459,7 +459,7 @@ const Main = styled.div`
       width: 3.5rem;
       height: 2rem;
       object-fit: contain;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 1.8rem;
         height: 1.8rem;
       }
@@ -470,7 +470,7 @@ const Main = styled.div`
       font-weight: 700;
       font-family: 'Abyssinica SIL', serif;
       letter-spacing: 0.2rem;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         font-size: 25px;
         letter-spacing: 0;
       }
@@ -483,7 +483,7 @@ const Main = styled.div`
     align-items: center;
     width: 100%;
     margin-top: 2rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       flex-direction: column;
     }
     a {
@@ -503,7 +503,7 @@ const Main = styled.div`
     align-items: center;
     gap: 1rem;
     width: 30vw;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: 95vw;
     }
 

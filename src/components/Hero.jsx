@@ -33,7 +33,7 @@ const Main = styled.div`
   background-color: ${({ theme }) => theme.bgBlue};
   padding: 5rem 3rem;
   gap: 10rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     flex-direction: column;
     width: 100vw;
     padding: 3rem;
@@ -45,7 +45,7 @@ const Text = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 90vw;
     gap: 3rem;
   }
@@ -66,7 +66,7 @@ const Text = styled.div`
     color: ${({ theme }) => theme.text4};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: 50%;
       font-size: 17px;
     }
@@ -84,7 +84,7 @@ const Image = styled.div`
     height: 30rem;
     object-fit: fill;
     border-radius: 0.5rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
         width: 95vw;
       
     }

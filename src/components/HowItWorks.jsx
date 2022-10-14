@@ -54,7 +54,7 @@ const Main = styled.div`
     font-weight: 900;
     color: ${({ theme }) => theme.text1};
     font-family: 'Open Sans', sans-serif;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
      
       font-size: 30px;
       text-align: center;
@@ -68,7 +68,7 @@ const Card = styled.div`
   align-items: center;
   gap: 3rem;
   /* background-color: red; */
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     flex-direction: column;
   }
 `
@@ -116,7 +116,7 @@ const CardContent = styled.div`
     color: ${({ theme }) => theme.text4};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       padding: 0.5rem 2rem;
       font-size: 17px;
     }
@@ -165,7 +165,7 @@ const CardContentTwo = styled.div`
     color: ${({ theme }) => theme.text1};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       padding: 0.5rem 2rem;
       font-size: 17px;
     }
@@ -214,7 +214,7 @@ const CardContentThree = styled.div`
     color: ${({ theme }) => theme.text4};
     border: none;
     cursor: pointer;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       padding: 0.5rem 2rem;
       font-size: 17px;
     }

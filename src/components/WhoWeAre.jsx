@@ -71,7 +71,7 @@ const Main = styled.div`
     justify-content: center;
     gap: 4rem;
     flex-direction: row-reverse;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
     flex-direction: column;
     }
   }
@@ -149,7 +149,7 @@ const Peoples = styled.div`
   .people {
     display: flex;
     gap: 5rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       flex-direction: column;
       gap: 2rem;
     }

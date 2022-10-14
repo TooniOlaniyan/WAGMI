@@ -26,7 +26,7 @@ const Main = styled.div`
   align-items: center;
   gap: 2rem;
   border-radius: 1rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 90vw;
   }
   .top {
@@ -44,7 +44,7 @@ const Main = styled.div`
     align-self: flex-start;
     align-items: center;
     gap: 1rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       flex-direction: column;
     }
 
@@ -52,7 +52,7 @@ const Main = styled.div`
       width: 5rem;
       height: 5rem;
       border-radius: 50%;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 4rem;
         height: 4rem;
       }

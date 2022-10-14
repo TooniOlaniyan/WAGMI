@@ -2,7 +2,7 @@ import React , {useState , useEffect} from 'react'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 import {BsGlobe} from 'react-icons/bs'
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo.png'
 import { Slant as Hamburger } from 'hamburger-react'
 import { useLocomotiveScroll } from 'react-locomotive-scroll'
 import MobileNav from './MobileNav'
@@ -95,7 +95,7 @@ const Main = styled.div`
   
   
   background-color: ${({ theme }) => theme.text2};
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     padding: 0.5rem 0.8rem;
     justify-content: space-between;
   }
@@ -111,7 +111,7 @@ const Main = styled.div`
     img {
       width: 2.5rem;
       height: 2rem;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 1.8rem;
         height: 1.8rem;
       }
@@ -122,7 +122,7 @@ const Main = styled.div`
       font-weight: 700;
       font-family: 'Abyssinica SIL', serif;
       letter-spacing: 0.2rem;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         font-size: 19px;
         letter-spacing: 0;
       }
@@ -130,7 +130,7 @@ const Main = styled.div`
   }
   .hamburger-react {
     display: none;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -146,7 +146,7 @@ const Middle = styled.div`
   gap: 3rem;
   flex: 1;
   
-  @media screen and (max-width:450px) {
+  @media screen and (max-width:890px) {
     display: none;
     
   }
@@ -183,7 +183,7 @@ const Right = styled.div`
   flex: 1;
   align-items: center;
   gap: 1rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     display: none;
   }
   .signUp {

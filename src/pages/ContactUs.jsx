@@ -49,7 +49,7 @@ const Contact = styled.div`
 `
 const Form = styled.form`
   width: 70%;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 90vw;
   }
   .form-control {
@@ -57,7 +57,7 @@ const Form = styled.form`
     justify-content: space-between;
     gap: 3rem;
     margin-bottom: 1rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       flex-direction: column;
     }
   }
@@ -96,7 +96,7 @@ const Form = styled.form`
   #email {
     width: 50%;
     height: 3.5rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
      width: 100%;
     }
   }
