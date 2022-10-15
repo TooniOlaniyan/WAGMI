@@ -14,10 +14,10 @@ function Regular({ setRegular }) {
         </div>
         <div className='minMax'>
           <p>
-            <AiOutlineCheck /> Min. deposit: $300
+            <AiOutlineCheck /> Min. deposit: $5000
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $1000
+            <AiOutlineCheck /> Max. deposit: $49,999
           </p>
         </div>
         <form>

@@ -17,6 +17,7 @@ import FundAccount from './pages/FundAccount';
 import Transactions from './pages/Transactions';
 import Invest from './pages/Invest';
 import Settings from './pages/Settings';
+import Withdraw from './pages/Withdraw';
 
 function App() {
    const containerRef = useRef(null)
@@ -43,6 +44,7 @@ function App() {
               <Route path='/forgot-password' element={<ForgotPassword />} />
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/fund-account' element={<FundAccount />} />
+              <Route path='/withdraw' element={<Withdraw />} />
               <Route path='/transactions' element={<Transactions />} />
               <Route path='/invest' element={<Invest />} />
               <Route path='/settings' element={<Settings />} />

@@ -14,10 +14,10 @@ function Premium({ setPremium }) {
         </div>
         <div className='minMax'>
           <p>
-            <AiOutlineCheck /> Min. deposit: $1000
+            <AiOutlineCheck /> Min. deposit: $50,000
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $6000
+            <AiOutlineCheck /> Max. deposit: $99,999
           </p>
         </div>
         <form>

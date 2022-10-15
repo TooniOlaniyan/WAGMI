@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import {Link , NavLink} from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {MdDashboard} from 'react-icons/md'
-import { GiBuyCard, GiWallet } from 'react-icons/gi'
-import {FaHistory} from 'react-icons/fa'
+import { GiBuyCard, GiWallet , } from 'react-icons/gi'
+import {FaHistory , FaScroll} from 'react-icons/fa'
 import {FiSettings} from 'react-icons/fi'
 function DashboardSideBar() {
   return (
@@ -58,6 +58,16 @@ function DashboardSideBar() {
               </div>
             </div>
             <p>Fund Account</p>
+          </div>
+        </NavLink>
+        <NavLink to='/withdraw'>
+          <div className='links'>
+            <div className='imageContainer'>
+              <div className='image'>
+                <FaScroll />
+              </div>
+            </div>
+            <p>Withdraw</p>
           </div>
         </NavLink>
         <NavLink to='/transactions'>

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
 import Withdrawl from '../components/modals/Withdrawl'
 function FundAccount() {
-  const [request , setRequest] = useState(false)
+
   const handleCopy = () => {
     const walletAddress = 'bc1qh2ntfz4g7whl5chys0j94xv82du47mfh580y03'
     const data = navigator.clipboard.writeText(walletAddress)
@@ -19,7 +19,6 @@ function FundAccount() {
       <MainContainer>
         <DashboardNav />
         <Content>
-          {request && <Withdrawl setRequest={setRequest} />}
           <div className='fund'>
             <p>Fund Account</p>
           </div>
@@ -34,11 +33,6 @@ function FundAccount() {
             />
             <FiCopy onClick={handleCopy} />
           </div>
-          <Request>
-            <div onClick={() => setRequest(true)} className='request'>
-              <p>Request Widthdrawl</p>
-            </div>
-          </Request>
           <TransactionTable>
             <div className='history'>
               <p>See Transaction History</p>
@@ -166,14 +160,6 @@ const TransactionTable = styled.div`
     border: 3px solid ${({ theme }) => theme.bgRed};
   }
 `
-const Request = styled.div`
-text-align: end;
-  .request {
-    font-size: 18px;
-    font-weight: 800;
-    color: ${({ theme }) => theme.gray};
-    cursor: pointer;
-  }
-`
+
 
 export default FundAccount

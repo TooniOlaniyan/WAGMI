@@ -16,12 +16,12 @@ function Pricing() {
       <Card>
         <CardContent>
           <p className='head'>Regular</p>
-          <p className='price'>$300 - $1000</p>
+          <p className='price'>$5000 - $49,999</p>
           <p>
-            <AiOutlineCheck /> Min. deposit: $300{' '}
+            <AiOutlineCheck /> Min. deposit: $5000{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $1000{' '}
+            <AiOutlineCheck /> Max. deposit: $49,999{' '}
           </p>
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
@@ -31,12 +31,12 @@ function Pricing() {
         </CardContent>
         <CardContentTwo>
           <p className='head'>Premium</p>
-          <p className='price'>$1000 - $6000</p>
+          <p className='price'>$50,000 - $99,999</p>
           <p>
-            <AiOutlineCheck /> Min. deposit: $1000{' '}
+            <AiOutlineCheck /> Min. deposit: $50000{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $6000{' '}
+            <AiOutlineCheck /> Max. deposit: $99,999{' '}
           </p>
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}
@@ -47,12 +47,12 @@ function Pricing() {
         </CardContentTwo>
         <CardContentThree>
           <p className='head'>Diamond</p>
-          <p className='price'>$7000 - $25000</p>
+          <p className='price'>$100,000 - Max</p>
           <p>
-            <AiOutlineCheck /> Min. deposit: $700{' '}
+            <AiOutlineCheck /> Min. deposit: $100,000{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $25000{' '}
+            <AiOutlineCheck /> Max. deposit: $Max{' '}
           </p>
           <p>
             <AiOutlineCheck /> Max. return: 350% + Capital{' '}

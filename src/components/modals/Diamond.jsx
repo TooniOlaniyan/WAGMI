@@ -14,10 +14,10 @@ function Diamond({ setDiamond }) {
         </div>
         <div className='minMax'>
           <p>
-            <AiOutlineCheck /> Min. deposit: $7000
+            <AiOutlineCheck /> Min. deposit: $100,000
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $25000
+            <AiOutlineCheck /> Max. deposit: $Max
           </p>
         </div>
         <form>
