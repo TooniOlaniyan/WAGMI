@@ -44,7 +44,7 @@ const Container = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.901);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
@@ -65,7 +65,7 @@ const Main = styled.div`
   gap: 1rem;
   position: relative;
   margin-top: -12rem;
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 890px) {
     width: 90vw;
   }
 
@@ -84,7 +84,7 @@ const Main = styled.div`
     width: 30vw;
 
     padding: 0.5rem 1rem;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: 70vw;
     }
   }
@@ -130,7 +130,7 @@ const Main = styled.div`
       border: 2px solid ${({ theme }) => theme.gray};
       background-color: transparent;
       border-radius: 0.5rem;
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         font-size: 15px;
       }
 

@@ -39,7 +39,7 @@ const Edit = styled.div`
   flex-direction: column;
   transition: all 0.5s;
   width: 67vw;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     width: 97vw;
     height: 70vh;
     padding: 2rem;
@@ -56,7 +56,7 @@ const Edit = styled.div`
     flex-wrap: wrap;
     width: 100%;
     gap: 5rem;
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 890px) {
       flex-wrap: nowrap;
       flex-direction: column;
       justify-content: center;
@@ -84,7 +84,7 @@ const Edit = styled.div`
         border-radius: 1.2rem;
         background-color: transparent;
         border: 2px solid ${({ theme }) => theme.bgRed};
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width: 890px) {
           width: 100%;
         }
         &::-webkit-inner-spin-button,

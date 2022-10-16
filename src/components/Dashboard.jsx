@@ -78,7 +78,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   transition: all 0.5s;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     /* background-color: red; */
     /* overflow: hidden; */
   }
@@ -91,7 +91,7 @@ const Content = styled.div`
   height: 83vh;
   overflow-y: scroll;
   margin-top: 2rem;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     height: 100vh;
     padding: 0.5rem;
   }
@@ -109,7 +109,7 @@ const Content = styled.div`
     justify-content: space-between;
     align-items: flex-end;
     gap: 0.7rem;
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 890px) {
       flex-direction: column;
       align-items: center;
     }
@@ -121,7 +121,7 @@ const Content = styled.div`
       padding: 2rem 3rem;
       background-color: ${({ theme }) => theme.bgBlue};
       position: relative;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         width: 90vw;
       }
       .amount {
@@ -164,7 +164,7 @@ const Content = styled.div`
       padding: 2rem 3rem;
       background-color: ${({ theme }) => theme.gray};
       position: relative;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         width: 90vw;
       }
       .amount {
@@ -207,7 +207,7 @@ const Content = styled.div`
       padding: 2rem 3rem;
       background-color: ${({ theme }) => theme.bgRed};
       position: relative;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         width: 90vw;
       }
       .amount {
@@ -248,7 +248,7 @@ const Content = styled.div`
     height: 150rem;
     /* background-color: red; */
     margin-top: 3rem;
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 890px) {
       height: 610px;
     }
     .liveData {
@@ -264,7 +264,7 @@ const Content = styled.div`
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         margin-top: 6rem;
       }
       a {

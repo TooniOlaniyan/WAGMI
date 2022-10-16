@@ -29,6 +29,9 @@ function DashboardMobileNav() {
               <Link className='link' to='/fund-account'>
                 Fund Account
               </Link>
+              <Link className='link' to='/withdraw'>
+                Withdraw
+              </Link>
              
               <Link className='link' to='/transactions'>
                 Transactions
@@ -115,19 +118,22 @@ const Container = styled(motion.div)`
 }
     `
  const Right = styled.div`
- display: flex;
- justify-content: center;
- align-items: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    .logOut {
+     @media screen and (max-width: 890px) {
+       display: flex;
+     }
      .logOutBtn {
-       @media screen and (max-width: 640px) {
+       @media screen and (max-width: 890px) {
          display: flex;
        }
        cursor: pointer;
      }
      .hamburger-react {
        display: none;
-       @media screen and (max-width: 640px) {
+       @media screen and (max-width: 890px) {
          display: flex;
          justify-content: center;
          align-items: center;

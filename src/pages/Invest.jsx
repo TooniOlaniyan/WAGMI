@@ -33,7 +33,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   transition: all 0.5s;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     /* background-color: red; */
     /* overflow: hidden; */
   }
@@ -45,7 +45,7 @@ const Content = styled.div`
   padding: 0.1rem 6rem 3rem 6rem;
   height: 83vh;
   overflow-y: scroll;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     height: 100vh;
     width: 100vw;
     padding: 0.5rem;

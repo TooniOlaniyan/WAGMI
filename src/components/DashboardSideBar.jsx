@@ -123,7 +123,7 @@ const Main = styled.div`
       width: 5vw;
       height: 1.6px;
       background-color: ${({ theme }) => theme.gray2};
-      @media screen and (max-width: 450px) {
+      @media screen and (max-width: 890px) {
         width: 35vw;
         justify-content: space-between;
       }

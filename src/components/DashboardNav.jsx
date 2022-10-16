@@ -67,7 +67,7 @@ const Navigation = styled.div`
   justify-content: space-between;
   transition: all 0.5;
 
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     width: 100vw;
     padding: 0 0.2rem;
     position: sticky;
@@ -91,14 +91,14 @@ const Navigation = styled.div`
   }
   .logOut {
     .logOutBtn {
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         display: none;
       }
       cursor: pointer;
     }
     .hamburger-react {
       display: none;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         display: flex;
         justify-content: center;
         align-items: center;

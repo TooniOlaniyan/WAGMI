@@ -67,7 +67,7 @@ const PasswordReset = styled.div`
     align-items: center;
     gap: 1rem;
     width: 30vw;
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 890px) {
       width: 95vw;
     }
 

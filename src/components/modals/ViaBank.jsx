@@ -2,24 +2,34 @@ import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose } from 'react-icons/ai'
 
-function Withdrawl({setBitcoin}) {
+function ViaBank({setBank}) {
   return (
     <Container>
       <Main>
-        <Button onClick={() => setBitcoin(false)}>
+        <Button onClick={() => setBank(false)}>
           <AiOutlineClose className='icon' />
         </Button>
         <div className='request'>
           <p>Request Widthdraw</p>
         </div>
         <form>
-          <div className='formControl'>
-            <input type='text' placeholder='Enter Amount' />
+          <div className='formControl' >
+            <input type='text' required placeholder='Enter Amount' />
             <label htmlFor=''>Enter Amount to Withdraw</label>
           </div>
           <div className='formControl'>
-            <input type='text' placeholder='Enter Address' />
-            <label htmlFor=''>Enter wallet address</label>
+            <select name='bankname' required>
+              <option selected='selected' value='0'>
+                --Choose Bank --
+              </option>
+              <option value='1'>JPMORGAN </option>
+              <option value='2'>BANK OF AMERICA</option>
+              <option value='3'>WELLS FARGO</option>
+              <option value='29'>CITIBANK</option>
+              <option value='4'>U.S. BASNCORP</option>
+              <option value='6'>OTHERS</option>
+            </select>
+            <label htmlFor=''>Select Bank</label>
           </div>
           <div className='withdraw'>
             <button>Withdraw</button>
@@ -29,6 +39,7 @@ function Withdrawl({setBitcoin}) {
     </Container>
   )
 }
+
 const Container = styled.div`
   position: fixed;
   width: 100vw;
@@ -58,7 +69,6 @@ const Main = styled.div`
   @media screen and (max-width: 890px) {
     width: 90vw;
   }
-
   .request {
     font-size: 18px;
     font-weight: 800;
@@ -70,7 +80,7 @@ const Main = styled.div`
     flex-wrap: wrap;
     width: 100%;
     gap: 3rem;
-    @media screen and (max-width: 890px) {
+    @media screen and (max-width: 640px) {
       flex-wrap: nowrap;
       flex-direction: column;
       justify-content: center;
@@ -91,14 +101,15 @@ const Main = styled.div`
         color: ${({ theme }) => theme.gray};
       }
 
-      input {
+      input,
+      select {
         font-size: 17px;
         width: 25vw;
         padding: 0.5rem 1rem;
         border-radius: 0.6rem;
         background-color: transparent;
         border: 2px solid ${({ theme }) => theme.bgRed};
-        @media screen and (max-width: 890px) {
+        @media screen and (max-width: 640px) {
           width: 100%;
         }
         &::-webkit-inner-spin-button,
@@ -131,21 +142,21 @@ const Main = styled.div`
     }
   }
 `
- const Button = styled.div`
-   position: absolute;
-   top: 1.4rem;
-   right: 2rem;
-   border: 3px solid ${({ theme }) => theme.bgRed};
-   padding: 0.4rem;
-   border-radius: 50%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
-   .icon {
-     color: ${({ theme }) => theme.text1};
-     font-size: 15px;
-   }
- `
+const Button = styled.div`
+  position: absolute;
+  top: 1.4rem;
+  right: 2rem;
+  border: 3px solid ${({ theme }) => theme.bgRed};
+  padding: 0.4rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .icon {
+    color: ${({ theme }) => theme.text1};
+    font-size: 15px;
+  }
+`
 
-export default Withdrawl
+export default ViaBank

@@ -53,7 +53,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   gap: 1rem;
   transition: all 0.5s;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     /* background-color: red; */
     /* overflow: hidden; */
   }
@@ -66,7 +66,7 @@ const Content = styled.div`
   height: 87vh;
   overflow-y: scroll;
   align-items: center;
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 890px) {
     height: 100vh;
     padding: 0.5rem;
     /* align-items: flex-start; */
@@ -84,7 +84,7 @@ const Content = styled.div`
     flex-direction: column;
     transition: all 0.5s;
     width: 100%;
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 890px) {
       padding: 2rem;
     }
 
@@ -97,7 +97,7 @@ const Content = styled.div`
       justify-content: space-between;
       border-radius: 1.2rem;
       cursor: pointer;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         width: 100%;
         padding: 1rem;
       }
@@ -122,7 +122,7 @@ const Content = styled.div`
       padding: 1.2rem 2rem;
       justify-content: space-between;
       border-radius: 1.2rem;
-      @media screen and (max-width: 640px) {
+      @media screen and (max-width: 890px) {
         width: 100%;
         padding: 1rem;
       }
