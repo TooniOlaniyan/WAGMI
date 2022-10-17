@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { getAuth, updateProfile } from 'firebase/auth'
 
 function UpdateProfile() {
+    const auth = getAuth()
   return (
     <Edit>
         <div className='edit'>
@@ -9,20 +11,20 @@ function UpdateProfile() {
         </div>
         <form>
             <div className='formControl' >
-                <input disabled type="text" placeholder='Caleb' />
+                <input id='name' disabled type="text" placeholder={auth.currentUser.name} />
                 <label htmlFor="">Name</label>
             </div>
             <div className='formControl' >
-                <input disabled type="email" placeholder='Calebjames@gmail.com' />
+                <input disabled type="email" placeholder={auth.currentUser.email} />
                 <label htmlFor="">Email</label>
             </div>
             <div className='formControl' >
-                <input    type="number" placeholder='6264678228' />
+                <input    type="number" placeholder={auth.currentUser.number} />
                 <label className='editable'  htmlFor="">Phone Number</label>
             </div>
             <div className='formControl' >
                 <input   type="text" placeholder='Caleb' />
-                <label className='editable' htmlFor="">User Name</label>
+                <label className='editable' htmlFor="">{auth.currentUser.username}</label>
             </div>
             <div className='formControl' >
                 <input  type="text" placeholder='Caleb' />

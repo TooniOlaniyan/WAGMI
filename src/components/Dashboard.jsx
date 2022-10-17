@@ -1,13 +1,38 @@
-import React from 'react'
+import React  , {useState} from 'react'
 import styled from 'styled-components'
+import { getAuth } from 'firebase/auth'
 import DashboardNav from './DashboardNav'
 import DashboardSideBar from './DashboardSideBar'
 import { Link } from 'react-router-dom'
 import {MdOutlineAccountBalanceWallet} from 'react-icons/md'
 import {RiLuggageDepositLine} from 'react-icons/ri'
 import TradingViewChart from './TradingViewChart'
+import { doc, getDoc } from 'firebase/firestore'
+import { useEffect } from 'react'
+import {db} from '../firebase.config'
 
 function Dashboard() {
+  const auth = getAuth()
+  const [data , setData] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "users", auth.currentUser.uid);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+       console.log("Document data:", docSnap.data());
+       setData(docSnap.data())
+       
+      } else {
+  // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+
+    }
+    fetchData()
+
+  },[auth.currentUser.uid])
+  
   return (
     <Main>
       <DashboardSideBar />
@@ -21,7 +46,7 @@ function Dashboard() {
             <div className='cardOne'>
               <div className='amount'>
                 <p className='balance'>Deposit wallet Balance</p>
-                <p className='value'>$300</p>
+                <p className='value'>${data.deposit}</p>
               </div>
               <div className='icon'>
                 <MdOutlineAccountBalanceWallet />
@@ -30,7 +55,7 @@ function Dashboard() {
             <div className='cardTwo'>
               <div className='amount'>
                 <p className='balance'>Total Profit Balance</p>
-                <p className='value'>$300</p>
+                <p className='value'>${data.profit}</p>
               </div>
               <div className='icon'>
                 <RiLuggageDepositLine />
@@ -39,7 +64,7 @@ function Dashboard() {
             <div className='cardThree'>
               <div className='amount'>
                 <p className='balance'>Total withdraw Balance</p>
-                <p className='value'>$300</p>
+                <p className='value'>${data.withdraw}</p>
               </div>
               <div className='icon'>
                 <RiLuggageDepositLine />

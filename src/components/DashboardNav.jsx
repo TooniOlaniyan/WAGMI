@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Slant as Hamburger } from 'hamburger-react'
 import styled from 'styled-components'
+import { getAuth , signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import DashboardMobileNav from './DashboardMobileNav'
 
@@ -8,7 +9,9 @@ import DashboardMobileNav from './DashboardMobileNav'
 function DashboardNav() {
 const [isOpened, setIsOpened] = useState(false)
 const navigate = useNavigate()
+const auth = getAuth()
 const handleClick = () => {
+  auth.signOut()
   navigate('/sign-in')
 
 }
@@ -17,7 +20,7 @@ const handleClick = () => {
       {isOpened && <DashboardMobileNav/>}
       <div className='greetings'>
         <p>
-          Hi there, <span>Caleb</span>
+          Hi there, <span>{auth.currentUser.displayName}</span>
         </p>
       </div>
 

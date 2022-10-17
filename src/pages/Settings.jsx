@@ -6,8 +6,10 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 import UpdateProfile from '../components/UpdateProfile'
 import UpdatePassword from '../components/UpdatePassword'
 
+
 function Settings() {
   const [isActive, setIsActive] = useState('profile')
+
   return (
     <Main>
       <DashboardSideBar />

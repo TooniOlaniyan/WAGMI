@@ -4,6 +4,8 @@ import Globalstyles from './components/styles/globalStyles';
 import { ThemeContext, ThemeProvider } from 'styled-components'
 import Home from './pages/Home';
 import {light , dark} from './components/styles/theme'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import './App.css';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs'
@@ -18,6 +20,7 @@ import Transactions from './pages/Transactions';
 import Invest from './pages/Invest';
 import Settings from './pages/Settings';
 import Withdraw from './pages/Withdraw';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
    const containerRef = useRef(null)
@@ -33,6 +36,7 @@ function App() {
     >
       <div data-scroll-container ref={containerRef}>
         <Globalstyles />
+        <ToastContainer theme='colored' />
         <ThemeProvider theme={light}>
           <Router>
             <Routes>
@@ -42,12 +46,32 @@ function App() {
               <Route path='/sign-in' element={<SignIn />} />
               <Route path='/sign-up' element={<SignUp />} />
               <Route path='/forgot-password' element={<ForgotPassword />} />
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='/fund-account' element={<FundAccount />} />
-              <Route path='/withdraw' element={<Withdraw />} />
+              <Route path='/dashboard' element={<PrivateRoute />}>
+                <Route path='/dashboard' element={<Dashboard />} />
+              </Route>
+              <Route path='/withdraw' element={<PrivateRoute />}>
+                <Route path='/withdraw' element={<Withdraw />} />
+              </Route>
+              <Route path='/transactions' element={<PrivateRoute />}>
+                <Route path='/transactions' element={<Transactions />} />
+              </Route>
+              <Route path='/invest' element={<PrivateRoute />}>
+                <Route path='/invest' element={<Invest />} />
+              </Route>
+              <Route path='/fund-account' element={<PrivateRoute />}>
+                <Route path='/fund-account' element={<FundAccount />} />
+              </Route>
+              <Route path='/settings' element={<PrivateRoute />}>
+                <Route path='/settings' element={<Settings />} />
+              </Route>
+              <Route path='/dashboard' element={<PrivateRoute />}>
+                <Route path='/dashboard' element={<Dashboard />} />
+              </Route>
+
+              {/* <Route path='/withdraw' element={<Withdraw />} />
               <Route path='/transactions' element={<Transactions />} />
               <Route path='/invest' element={<Invest />} />
-              <Route path='/settings' element={<Settings />} />
+              <Route path='/settings' element={<Settings />} /> */}
             </Routes>
           </Router>
         </ThemeProvider>

@@ -1,17 +1,46 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import {getAuth , signInWithEmailAndPassword} from 'firebase/auth'
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
+import {toast} from 'react-toastify'
 import { BsArrowRight } from 'react-icons/bs'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 function SignIn() {
   const navigate = useNavigate()
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+    })
+    const { email, password } = formData
      const [isHidden, setIsHidden] = useState(false)
 
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault()
-        navigate('/dashboard')
+        try {
+           const auth = getAuth()
+             const userCredential = await signInWithEmailAndPassword(
+               auth,
+               email,
+               password
+             )
+                if (userCredential.user) {
+                navigate('/dashboard')
+                }
+          
+        } catch (error) {
+           toast.error('Check Credentials')
+          
+        }
+        
+      }
+      const handleChange = (e) => {
+           setFormData((prevState) => ({
+             ...prevState,
+             [e.target.id]: e.target.value,
+           }))
+
       }
   return (
     <Main>
@@ -49,7 +78,7 @@ function SignIn() {
       <Form onSubmit={handleSubmit} >
         <div className='formControl'>
           <label htmlFor=''>Email*</label>
-          <input type='text' placeholder='Email' />
+          <input type='text' id='email' value={email} onChange={handleChange} placeholder='Email' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Password*</label>
@@ -57,6 +86,9 @@ function SignIn() {
             className='formInput'
             type={isHidden ? 'text' : 'password'}
             placeholder='Password'
+            id='password'
+            value={password}
+            onChange={handleChange}
           />
           {!isHidden ? (
             <AiOutlineEye

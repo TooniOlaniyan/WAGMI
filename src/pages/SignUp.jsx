@@ -1,19 +1,68 @@
 import React, { useState } from 'react'
 import { Link , useNavigate } from 'react-router-dom'
+import {toast} from 'react-toastify'
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
 import { BsArrowRight } from 'react-icons/bs'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth'
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import {db} from '../firebase.config'
 function SignUp() {
   const navigate = useNavigate()
     const [isHidden , setIsHidden] = useState(false)
     const [confirmIsHidden , setConfirmIsHidden] = useState(false)
+      const [formData, setFormData] = useState({
+        name: '',
+        username:'',
+        email: '',
+        number:'',
+        password: '',
+        confirmPassword:'',
+        country:''
+      })
+      const { name, username, email,number ,  password , confirmPassword } = formData
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault()
-      navigate('/dashboard')
+      try {
+        const auth = getAuth()
+        const userCredential = await createUserWithEmailAndPassword(auth,email,password)
+        const user = userCredential.user
+           updateProfile(auth.currentUser, {
+             displayName: username,
+           })
+        const formDataCopy = {...formData}
+        formDataCopy.timestamp = serverTimestamp()
+        formDataCopy.deposit = '400'
+        formDataCopy.profit = '700'
+        formDataCopy.withdraw = '200'
+        await setDoc(doc(db , 'users' , user.uid) , formDataCopy)
+        navigate('/dashboard')
+     
+        
+        
+      } catch (error) {
+        console.log('ERROR')
+        
+      }
+      
+     
 
     }
+
+    const handleChange = (e) => {
+          setFormData((prevState) => ({
+            ...prevState,
+            [e.target.id]: e.target.value,
+          }))
+
+    }
+
   return (
     <Main>
       <div className='header'>
@@ -51,26 +100,28 @@ function SignUp() {
       <Form onSubmit={handleSubmit} >
         <div className='formControl'>
           <label htmlFor=''>Name*</label>
-          <input type='text' placeholder='Full Name' />
+          <input onChange={handleChange} type='text' id='name' value={name} placeholder='Full Name' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Username*</label>
-          <input type='text' placeholder='Username' />
+          <input onChange={handleChange} type='text' id='username' value={username}  placeholder='Username' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Email*</label>
-          <input type='text' placeholder='Email' />
+          <input onChange={handleChange} type='text' id='email' value={email} placeholder='Email' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Phone</label>
-          <input className='number' type='number' placeholder='Phone Number' />
+          <input onChange={handleChange} className='number' type='number' id='number' value={number} placeholder='Phone Number' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Password*</label>
-          <input
+          <input onChange={handleChange}
             className='formInput'
             type={isHidden ? 'text' : 'password'}
             placeholder='Password'
+            id='password'
+            value={password}
           />
           {!isHidden ? (
             <AiOutlineEye
@@ -86,10 +137,12 @@ function SignUp() {
         </div>
         <div className='formControl'>
           <label htmlFor=''>Confirm Password*</label>
-          <input
+          <input onChange={handleChange}
             className='formInput'
             type={confirmIsHidden ? 'text' : 'password'}
             placeholder='Confirm Password'
+            id='confirmPassword'
+            value={confirmPassword}
           />
           {!confirmIsHidden ? (
             <AiOutlineEye
@@ -105,7 +158,7 @@ function SignUp() {
         </div>
         <div className='formControl'>
           <label htmlFor=''>Country</label>
-          <select id='country' name='country' class='form-control'>
+          <select id='country' name='country' onChange={handleChange} class='form-control'>
             <option value='United States'>--Select Country-- </option>
             <option value='United States'>United States(US) </option>
             <option value='Afghanistan'>Afghanistan</option>
