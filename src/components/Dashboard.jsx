@@ -46,7 +46,7 @@ function Dashboard() {
             <div className='cardOne'>
               <div className='amount'>
                 <p className='balance'>Deposit wallet Balance</p>
-                <p className='value'>${data.deposit}</p>
+                <p className='value'>{data.deposit}</p>
               </div>
               <div className='icon'>
                 <MdOutlineAccountBalanceWallet />
@@ -55,7 +55,7 @@ function Dashboard() {
             <div className='cardTwo'>
               <div className='amount'>
                 <p className='balance'>Total Profit Balance</p>
-                <p className='value'>${data.profit}</p>
+                <p className='value'>{data.profit}</p>
               </div>
               <div className='icon'>
                 <RiLuggageDepositLine />
@@ -64,7 +64,7 @@ function Dashboard() {
             <div className='cardThree'>
               <div className='amount'>
                 <p className='balance'>Total withdraw Balance</p>
-                <p className='value'>${data.withdraw}</p>
+                <p className='value'>{data.withdraw}</p>
               </div>
               <div className='icon'>
                 <RiLuggageDepositLine />

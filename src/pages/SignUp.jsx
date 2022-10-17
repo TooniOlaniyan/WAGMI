@@ -38,9 +38,9 @@ function SignUp() {
            })
         const formDataCopy = {...formData}
         formDataCopy.timestamp = serverTimestamp()
-        formDataCopy.deposit = '400'
-        formDataCopy.profit = '700'
-        formDataCopy.withdraw = '200'
+        formDataCopy.deposit = '$0'
+        formDataCopy.profit = '$0'
+        formDataCopy.withdraw = '$0'
         await setDoc(doc(db , 'users' , user.uid) , formDataCopy)
         navigate('/dashboard')
      
