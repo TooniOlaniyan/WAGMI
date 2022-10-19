@@ -20,7 +20,7 @@ const handleClick = () => {
       {isOpened && <DashboardMobileNav/>}
       <div className='greetings'>
         <p>
-          Hi there, <span>{auth.currentUser.displayName}</span>
+          Hi there, <span>{auth.currentUser.displayName} !</span>
         </p>
       </div>
 

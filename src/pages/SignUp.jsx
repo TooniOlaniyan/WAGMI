@@ -12,6 +12,7 @@ import {
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import {db} from '../firebase.config'
+
 function SignUp() {
   const navigate = useNavigate()
     const [isHidden , setIsHidden] = useState(false)
@@ -29,27 +30,33 @@ function SignUp() {
 
     const handleSubmit = async (e) => {
       e.preventDefault()
-      try {
-        const auth = getAuth()
-        const userCredential = await createUserWithEmailAndPassword(auth,email,password)
-        const user = userCredential.user
-           updateProfile(auth.currentUser, {
-             displayName: username,
-           })
-        const formDataCopy = {...formData}
-        formDataCopy.timestamp = serverTimestamp()
-        formDataCopy.deposit = '$0'
-        formDataCopy.profit = '$0'
-        formDataCopy.withdraw = '$0'
-        await setDoc(doc(db , 'users' , user.uid) , formDataCopy)
-        navigate('/dashboard')
-     
-        
-        
-      } catch (error) {
-        console.log('ERROR')
-        
+      if(password === confirmPassword){
+              try {
+                const auth = getAuth()
+                const userCredential = await createUserWithEmailAndPassword(
+                  auth,
+                  email,
+                  password
+                )
+                const user = userCredential.user
+                updateProfile(auth.currentUser, {
+                  displayName: username,
+                })
+                const formDataCopy = { ...formData }
+                formDataCopy.timestamp = serverTimestamp()
+                formDataCopy.deposit = '$0'
+                formDataCopy.profit = '$0'
+                formDataCopy.withdraw = '$0'
+                await setDoc(doc(db, 'users', user.uid), formDataCopy)
+                navigate('/dashboard')
+              } catch (error) {
+                console.log('ERROR')
+              }
       }
+      else{
+        toast.error('Password must match')
+      }
+
       
      
 
@@ -97,31 +104,62 @@ function SignUp() {
         <div className='line'></div>
       </div>
 
-      <Form onSubmit={handleSubmit} >
+      <Form onSubmit={handleSubmit}>
         <div className='formControl'>
           <label htmlFor=''>Name*</label>
-          <input onChange={handleChange} type='text' id='name' value={name} placeholder='Full Name' />
+          <input
+            onChange={handleChange}
+            type='text'
+            id='name'
+            value={name}
+            placeholder='Full Name'
+            required
+          />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Username*</label>
-          <input onChange={handleChange} type='text' id='username' value={username}  placeholder='Username' />
+          <input
+            onChange={handleChange}
+            type='text'
+            id='username'
+            value={username}
+            placeholder='Username'
+            required
+          />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Email*</label>
-          <input onChange={handleChange} type='text' id='email' value={email} placeholder='Email' />
+          <input
+            onChange={handleChange}
+            type='text'
+            id='email'
+            value={email}
+            placeholder='Email'
+            required
+          />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Phone</label>
-          <input onChange={handleChange} className='number' type='number' id='number' value={number} placeholder='Phone Number' />
+          <input
+            onChange={handleChange}
+            className='number'
+            type='number'
+            id='number'
+            value={number}
+            placeholder='Phone Number'
+            required
+          />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Password*</label>
-          <input onChange={handleChange}
+          <input
+            onChange={handleChange}
             className='formInput'
             type={isHidden ? 'text' : 'password'}
             placeholder='Password'
             id='password'
             value={password}
+            required
           />
           {!isHidden ? (
             <AiOutlineEye
@@ -137,12 +175,14 @@ function SignUp() {
         </div>
         <div className='formControl'>
           <label htmlFor=''>Confirm Password*</label>
-          <input onChange={handleChange}
+          <input
+            onChange={handleChange}
             className='formInput'
             type={confirmIsHidden ? 'text' : 'password'}
             placeholder='Confirm Password'
             id='confirmPassword'
             value={confirmPassword}
+            required
           />
           {!confirmIsHidden ? (
             <AiOutlineEye
@@ -158,7 +198,13 @@ function SignUp() {
         </div>
         <div className='formControl'>
           <label htmlFor=''>Country</label>
-          <select id='country' name='country' onChange={handleChange} class='form-control'>
+          <select
+            id='country'
+            name='country'
+            onChange={handleChange}
+            class='form-control'
+            required
+          >
             <option value='United States'>--Select Country-- </option>
             <option value='United States'>United States(US) </option>
             <option value='Afghanistan'>Afghanistan</option>
@@ -463,6 +509,7 @@ function SignUp() {
             <span>Sign In</span> <BsArrowRight />
           </Link>
         </div>
+    
       </Form>
     </Main>
   )

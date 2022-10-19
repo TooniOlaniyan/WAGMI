@@ -9,6 +9,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
 
 function SignIn() {
   const navigate = useNavigate()
+  const [loading , setLoading] = useState(false)
     const [formData, setFormData] = useState({
       email: '',
       password: '',
@@ -19,6 +20,7 @@ function SignIn() {
       const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+          setLoading(true)
            const auth = getAuth()
              const userCredential = await signInWithEmailAndPassword(
                auth,
@@ -28,6 +30,7 @@ function SignIn() {
                 if (userCredential.user) {
                 navigate('/dashboard')
                 }
+                setLoading(false)
           
         } catch (error) {
            toast.error('Check Credentials')
@@ -102,7 +105,7 @@ function SignIn() {
             />
           )}
         </div>
-        <button>Log In</button>
+        <button style={{cursor: loading ? 'not-allowed' : 'pointer'}} >Log In</button>
         <div className='forgotPassword' >
           <Link to='/forgot-password' >
           <p>Forgot Password ?</p>

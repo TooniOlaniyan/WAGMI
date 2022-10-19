@@ -54,30 +54,30 @@ function Reviews() {
           >
             <SwiperSlide>
               <SliderContent
-                testimony='We love the approachable format and the fact that it chose to feature customers that users can relate to. When you click into any story, you can read the whole case study in a Q&A format.'
+                testimony='At first i was a bit skeptical about this, but after my first investment, i got my profits and my capital investment sent to my wallet immediately '
                 src={hero1}
-                name='August Britini'
+                name='Katherine Cooke'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony='We love the approachable format and the fact that it chose to feature customers that users can relate to. When you click into any story, you can read the whole case study in a Q&A format.'
+                testimony='This platform is really made for people like us. Trade republic gave me a second chance, and i took it and never regreted '
                 src={hero1}
-                name='August Britini'
+                name='Jacob Ledger'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony='We love the approachable format and the fact that it chose to feature customers that users can relate to. When you click into any story, you can read the whole case study in a Q&A format.'
+                testimony="Trade republic has made me and my family financially stable admist our country's inflation. i'd advice y'all take part in it's investment plans"
                 src={hero1}
-                name='August Britini'
+                name='Smith Stoll'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony='We love the approachable format and the fact that it chose to feature customers that users can relate to. When you click into any story, you can read the whole case study in a Q&A format.'
+                testimony="It an easy platform to use, and the payments are fast and hassle free"
                 src={hero1}
-                name='August Britini'
+                name='Molly Ford'
               />
             </SwiperSlide>
           </Swiper>

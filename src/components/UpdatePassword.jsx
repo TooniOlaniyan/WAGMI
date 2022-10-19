@@ -1,27 +1,83 @@
-import React from 'react'
+import React, { useState} from 'react'
 import styled from 'styled-components'
+import {
+  updateDoc,
+  getDoc,
+  doc,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  deleteDoc,
+} from 'firebase/firestore'
+import { getAuth, updateProfile } from 'firebase/auth'
+import { db } from '../firebase.config'
+import Spinner from './Spinner'
+import { toast } from 'react-toastify'
+import { async } from '@firebase/util'
 
 function UpdatePassword() {
+  const auth = getAuth()
+  const [loading , setLoading] = useState(false)
+  const [data, setData] = useState([])
+  const [formData , setFormData] = useState({
+    pin:'',
+    confirmPin:''
+  })
+  const {pin , confirmPin} = formData
+
+
+
+  const handleChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value
+
+    }))
+}
+
+  const handleUpdate = async (e) => {
+    e.preventDefault()
+    try {
+      setLoading(true)
+        const userRef = doc(db , 'users' , auth.currentUser.uid)
+        await updateDoc(userRef , {
+          pin,
+          confirmPin
+        })
+        toast.success('Pin set Successful')
+        setLoading(false)
+
+      
+    } catch (error) {
+      toast.error('Something went wrong, try again')
+      
+    }
+
+  }
+
+  if(loading){
+    return (
+      <Spinner/>
+    )
+  }
   return (
     <Edit>
       <div className='edit'>
-        <p>Change Password</p>
+        <p>Set Pin</p>
       </div>
-      <form>
+      <form onSubmit={handleUpdate} > 
         <div className='formControl'>
-          <input type='password' />
-          <label htmlFor=''>Enter old password</label>
+          <input id='pin' value={pin}  onChange={handleChange} type='password' />
+          <label htmlFor=''>Enter 4 digit Pin</label>
         </div>
         <div className='formControl'>
-          <input type='password' />
-          <label htmlFor=''>Enter new password</label>
-        </div>
-        <div className='formControl'>
-          <input type='password' />
-          <label htmlFor=''>Confirm new password</label>
+          <input id='confirmPin' value={confirmPin} onChange={handleChange} type='password' />
+          <label htmlFor=''>Confirm Pin</label>
         </div>
         <div className='update'>
-          <button>Update Password </button>
+          <button>Create Pin </button>
         </div>
       </form>
     </Edit>

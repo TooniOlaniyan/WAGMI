@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import {MdOutlineAccountBalanceWallet} from 'react-icons/md'
 import {RiLuggageDepositLine} from 'react-icons/ri'
 import TradingViewChart from './TradingViewChart'
+import Spinner from '../components/Spinner'
 import { doc, getDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
 import {db} from '../firebase.config'
@@ -14,14 +15,15 @@ import {db} from '../firebase.config'
 function Dashboard() {
   const auth = getAuth()
   const [data , setData] = useState([])
+  const [loading , setLoading] = useState(true)
   useEffect(() => {
     const fetchData = async () => {
       const docRef = doc(db, "users", auth.currentUser.uid);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
-       console.log("Document data:", docSnap.data());
        setData(docSnap.data())
+       setLoading(false)
        
       } else {
   // doc.data() will be undefined in this case
@@ -33,6 +35,11 @@ function Dashboard() {
 
   },[auth.currentUser.uid])
   
+  if(loading){
+    return (
+      <Spinner/>
+    )
+  }
   return (
     <Main>
       <DashboardSideBar />

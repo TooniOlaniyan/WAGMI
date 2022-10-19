@@ -1,9 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Footer from './Footer'
 import Header from './Header'
+import {getAuth , sendPasswordResetEmail} from 'firebase/auth'
+import { toast } from 'react-toastify'
+import {useNavigate} from 'react-router-dom'
+import Spinner from './Spinner'
 
 function ForgotPassword() {
+  const [loading , setLoading] = useState(false)
+  const [resetEmail , setResetEmail] = useState({
+    email:'',
+  })
+  const {email} = resetEmail
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setResetEmail((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value
+
+    }))
+
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+        setLoading(true)
+        const auth = getAuth()
+        await sendPasswordResetEmail(auth, email)
+        toast.success('Password Link sent to your email')
+        navigate('/sign-in')
+        setLoading(false)
+      
+    } catch (error) {
+      toast.error('Something went wrong, try again')
+      setLoading(false)
+      
+    }
+  
+   
+
+  }
+  if(loading){
+    return(
+      <Spinner/>
+    )
+  }
   return (
     <Main>
       <Header />
@@ -12,10 +56,10 @@ function ForgotPassword() {
             <p className='logIn'>Log In</p>
             <p className='reset'>Password Reset</p>
         </div>
-        <Form>
+        <Form  onSubmit={handleSubmit} >
           <div className='formControl'>
             <label htmlFor=''>Email*</label>
-            <input type='text' placeholder='Enter your Email' />
+            <input onChange={handleChange} required id='email' value={email} type='text' placeholder='Enter your Email' />
           </div>
           <button>Request Password Reset</button>
         </Form>

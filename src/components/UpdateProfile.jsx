@@ -1,40 +1,123 @@
-import React from 'react'
+import React , {useState , useEffect} from 'react'
 import styled from 'styled-components'
 import { getAuth, updateProfile } from 'firebase/auth'
+import { db } from '../firebase.config'
+import {
+  updateDoc,
+  getDoc,
+  doc,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  deleteDoc,
+} from 'firebase/firestore'
+import Spinner from './Spinner'
+import { toast } from 'react-toastify'
 
 function UpdateProfile() {
     const auth = getAuth()
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [formData , setFormData] = useState({
+      number:'',
+      username:'',
+      state:''
+    })
+
+    const {number , username , state} = formData
+
+    const handleChange = (e) => {
+          setFormData((prevState) => ({
+            ...prevState,
+            [e.target.id]: e.target.value,
+          }))
+
+    }
+
+    const handleSubmit = async (e) => {
+      e.preventDefault()
+      try {
+        setLoading(true)
+        if(auth.currentUser.displayName !== username){
+         await updateProfile(auth.currentUser,{
+            displayName: username
+          })
+
+        }
+          const userRef = doc(db, 'users', auth.currentUser.uid)
+        await updateDoc(userRef, {
+          number,
+          username,
+          state
+        })
+        toast.success('Profile Update successful')
+        setLoading(false)
+      
+        
+      } catch (error) {
+        toast.error('Something went wrong')
+
+        
+      }
+
+    }
+
+
+      useEffect(() => {
+        const fetchData = async () => {
+          const docRef = doc(db, 'users', auth.currentUser.uid)
+          const docSnap = await getDoc(docRef)
+
+          if (docSnap.exists()) {
+            setData(docSnap.data())
+            setLoading(false)
+          } else {
+            // doc.data() will be undefined in this case
+            console.log('No such document!')
+          }
+        }
+        fetchData()
+      }, [auth.currentUser.uid])
+
+      if (loading) {
+        return <Spinner />
+      }
   return (
     <Edit>
-        <div className='edit'>
-            <p>Update Profile</p>
+      <div className='edit'>
+        <p>Update Profile</p>
+      </div>
+      <form onSubmit={handleSubmit} >
+        <div className='formControl'>
+          <input id='name' disabled type='text' placeholder={data.name} />
+          <label htmlFor=''>Name</label>
         </div>
-        <form>
-            <div className='formControl' >
-                <input id='name' disabled type="text" placeholder={auth.currentUser.name} />
-                <label htmlFor="">Name</label>
-            </div>
-            <div className='formControl' >
-                <input disabled type="email" placeholder={auth.currentUser.email} />
-                <label htmlFor="">Email</label>
-            </div>
-            <div className='formControl' >
-                <input    type="number" placeholder={auth.currentUser.number} />
-                <label className='editable'  htmlFor="">Phone Number</label>
-            </div>
-            <div className='formControl' >
-                <input   type="text" placeholder='Caleb' />
-                <label className='editable' htmlFor="">{auth.currentUser.username}</label>
-            </div>
-            <div className='formControl' >
-                <input  type="text" placeholder='Caleb' />
-                <label className='editable'  htmlFor="">Name</label>
-            </div>
-            <div className='update'>
-                <button>Update</button>
-            </div>
-        </form>
-        
+        <div className='formControl'>
+          <input disabled type='email' placeholder={auth.currentUser.email} />
+          <label htmlFor=''>Email</label>
+        </div>
+        <div className='formControl'>
+          <input  onChange={handleChange} id='number' value={number} type='number' placeholder={data.number} />
+          <label className='editable' htmlFor=''>
+            Phone Number
+          </label>
+        </div>
+        <div className='formControl'>
+          <input  onChange={handleChange} id='username' value={username} type='text' placeholder={data.username} />
+          <label className='editable' htmlFor=''>Username</label>
+        </div>
+        <div className='formControl'>
+          <input  onChange={handleChange} id='state' value={state} type='text' placeholder='Enter State' />
+          <label className='editable' htmlFor=''>
+            Add State
+          </label>
+        </div>
+        <div className='update'>
+          <button>Update</button>
+        </div>
+      </form>
     </Edit>
   )
 }

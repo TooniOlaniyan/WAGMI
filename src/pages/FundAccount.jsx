@@ -6,12 +6,13 @@ import {FiCopy} from 'react-icons/fi'
 import TransactionHistory from '../components/TransactionHistory'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
-import Withdrawl from '../components/modals/Withdrawl'
+import {toast} from 'react-toastify'
 function FundAccount() {
 
   const handleCopy = () => {
     const walletAddress = 'bc1qh2ntfz4g7whl5chys0j94xv82du47mfh580y03'
     const data = navigator.clipboard.writeText(walletAddress)
+    toast.success('Address copied')
   }
   return (
     <Main>

@@ -9,6 +9,7 @@ import UpdatePassword from '../components/UpdatePassword'
 
 function Settings() {
   const [isActive, setIsActive] = useState('profile')
+  
 
   return (
     <Main>
