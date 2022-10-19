@@ -11,6 +11,10 @@ import 'swiper/css/scrollbar'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
+import smith from '../assets/smith.jpg'
+import molly from '../assets/molly.jpg'
+import jacob from '../assets/jacob.jpg'
+import katherine from '../assets/katherine.jpg'
 
 
 
@@ -54,29 +58,29 @@ function Reviews() {
           >
             <SwiperSlide>
               <SliderContent
-                testimony='At first i was a bit skeptical about this, but after my first investment, i got my profits and my capital investment sent to my wallet immediately '
-                src={hero1}
+                testimony='At first i was a bit skeptical about this, but after my first investment, i got my profits and my capital investment sent to my wallet immediately.'
+                src={katherine}
                 name='Katherine Cooke'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony='This platform is really made for people like us. Trade republic gave me a second chance, and i took it and never regreted '
-                src={hero1}
+                testimony='This platform is really made for people like us. Trade republic gave me a second chance, and i took it and never regreted. '
+                src={jacob}
                 name='Jacob Ledger'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony="Trade republic has made me and my family financially stable admist our country's inflation. i'd advice y'all take part in it's investment plans"
-                src={hero1}
+                testimony="Trade republic has made me and my family financially stable admist our country's inflation. i'd advice y'all take part in it's investment plans."
+                src={smith}
                 name='Smith Stoll'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony="It an easy platform to use, and the payments are fast and hassle free"
-                src={hero1}
+                testimony="It an easy platform to use, and the payments are fast and hassle free."
+                src={molly}
                 name='Molly Ford'
               />
             </SwiperSlide>

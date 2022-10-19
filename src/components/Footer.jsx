@@ -36,7 +36,6 @@ function Footer() {
             <p>Invest Now</p>
           </Link>
         </Links>
-        <Address>Address</Address>
       </Top>
       <div className='flag'>
         <div className='line'></div>

@@ -4,7 +4,10 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 function ContactUs() {
-     const onSubmit = () => {}
+     const onSubmit = (e) => {
+      e.preventDefault()
+
+     }
   return (
     <Main>
       <Header />

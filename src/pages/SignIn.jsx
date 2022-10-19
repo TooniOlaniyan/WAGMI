@@ -33,7 +33,7 @@ function SignIn() {
                 setLoading(false)
           
         } catch (error) {
-           toast.error('Check Credentials')
+           toast.error('Something went wrong')
           
         }
         

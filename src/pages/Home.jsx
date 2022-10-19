@@ -1,5 +1,6 @@
-import React from 'react'
+import React  from 'react'
 import styled from 'styled-components'
+
 import ChooseUs from '../components/ChooseUs'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
