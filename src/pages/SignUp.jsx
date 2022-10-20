@@ -12,10 +12,12 @@ import {
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import {db} from '../firebase.config'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 function SignUp() {
   const navigate = useNavigate()
     const [isHidden , setIsHidden] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [confirmIsHidden , setConfirmIsHidden] = useState(false)
       const [formData, setFormData] = useState({
         name: '',
@@ -32,6 +34,7 @@ function SignUp() {
       e.preventDefault()
       if(password === confirmPassword){
               try {
+                setLoading(true)
                 const auth = getAuth()
                 const userCredential = await createUserWithEmailAndPassword(
                   auth,
@@ -48,6 +51,7 @@ function SignUp() {
                 formDataCopy.profit = '$0'
                 formDataCopy.withdraw = '$0'
                 await setDoc(doc(db, 'users', user.uid), formDataCopy)
+                setLoading(false)
                 navigate('/dashboard')
               } catch (error) {
                 console.log('ERROR')
@@ -502,7 +506,7 @@ function SignUp() {
             <option value='Zimbabwe'>Zimbabwe</option>
           </select>
         </div>
-        <button>Sign Up</button>
+        <button>Sign Up  {loading && <LoadingSpinner/>}  </button>
         <div className='checkAccount'>
           <p>Got an account?</p>
           <Link to='/sign-in' style={{ textDecoration: 'none' }}>

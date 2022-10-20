@@ -6,6 +6,7 @@ import logo from '../assets/logo.png'
 import {toast} from 'react-toastify'
 import { BsArrowRight } from 'react-icons/bs'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 function SignIn() {
   const navigate = useNavigate()
@@ -81,7 +82,7 @@ function SignIn() {
       <Form onSubmit={handleSubmit} >
         <div className='formControl'>
           <label htmlFor=''>Email*</label>
-          <input type='text' id='email' value={email} onChange={handleChange} placeholder='Email' />
+          <input required type='text' id='email' value={email} onChange={handleChange} placeholder='Email' />
         </div>
         <div className='formControl'>
           <label htmlFor=''>Password*</label>
@@ -92,6 +93,7 @@ function SignIn() {
             id='password'
             value={password}
             onChange={handleChange}
+            required
           />
           {!isHidden ? (
             <AiOutlineEye
@@ -105,7 +107,7 @@ function SignIn() {
             />
           )}
         </div>
-        <button style={{cursor: loading ? 'not-allowed' : 'pointer'}} >Log In</button>
+        <button style={{cursor: loading ? 'not-allowed' : 'pointer'}} >Log In {loading && <LoadingSpinner/>}    </button>
         <div className='forgotPassword' >
           <Link to='/forgot-password' >
           <p>Forgot Password ?</p>
