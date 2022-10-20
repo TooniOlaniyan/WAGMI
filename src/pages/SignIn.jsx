@@ -35,6 +35,7 @@ function SignIn() {
           
         } catch (error) {
            toast.error('Something went wrong')
+           setLoading(false)
           
         }
         

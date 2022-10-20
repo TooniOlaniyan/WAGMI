@@ -36,22 +36,21 @@ function WhoWeAre() {
               {' '}
               <img src={miller} alt='' />
             </div>
-            <p className='name'>name</p>
-            <p className='position'>position</p>
+            <p className='name'>Jason Miller</p>
+            
           </div>
           <div className='container'>
             <div className='imageContainer'>
               <img src={steve} alt='' />
             </div>
-            <p className='name'>name</p>
-            <p className='position'>position</p>
+            <p className='name'>Steve Bannon</p>
+            
           </div>
           <div className='container'>
             <div className='imageContainer'>
               <img src={miller} alt='' />
             </div>
-            <p className='name'>name</p>
-            <p className='positin'>position</p>
+            <p className='name'>Edward Dowd</p>
           </div>
         </div>
       </Peoples>

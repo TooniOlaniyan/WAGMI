@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.7.0",
     "@mui/material": "^5.10.9",
     "@mui/styled-engine-sc": "^5.10.6",
     "@mui/x-data-grid": "^5.17.6",
