@@ -2,6 +2,7 @@ import React from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import styled from 'styled-components'
 
+
 function TransactionHistory() {
     
 const columns = [
@@ -38,6 +39,7 @@ const rows = [
         pageSize={3}
         rowsPerPageOptions={[5]}
         className='dataTable'
+        re
       />
     </Main>
   )
