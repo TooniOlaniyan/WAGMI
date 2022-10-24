@@ -14,7 +14,7 @@ import {
 } from 'firebase/firestore'
 import {db} from '../firebase.config'
 function Transactions() {
-   const [transactions, setTransactions] = useState(null)
+   const [transactions, setTransactions] = useState([{}])
 
      useEffect(() => {
        const fetchTrasaction = async () => {
