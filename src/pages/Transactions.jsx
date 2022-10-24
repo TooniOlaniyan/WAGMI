@@ -32,7 +32,9 @@ function Transactions() {
            querySnap.forEach((doc) => {
              console.log(doc.data())
            })
-         } catch (error) {}
+         } catch (error) {
+          
+         }
        }
 
        fetchTrasaction()
