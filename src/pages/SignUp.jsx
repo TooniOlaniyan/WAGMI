@@ -548,7 +548,6 @@ const Main = styled.div`
     .head {
       font-size: 50px;
       font-weight: 400;
-      font-family: 'Permanent Marker', cursive;
     }
   }
   .logoContainer {

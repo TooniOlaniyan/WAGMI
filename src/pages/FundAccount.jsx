@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
 import {toast} from 'react-toastify'
 function FundAccount() {
+  const [proof, setProof] = useState(false)
 
   const handleCopy = () => {
+    
     const walletAddress = 'bc1qh2ntfz4g7whl5chys0j94xv82du47mfh580y03'
     const data = navigator.clipboard.writeText(walletAddress)
     toast.success('Address copied')
@@ -33,6 +35,11 @@ function FundAccount() {
               disabled
             />
             <FiCopy onClick={handleCopy} />
+          </div>
+          <div className='proof'>
+            <p>
+              Proof of payment
+            </p>
           </div>
           <TransactionTable>
             <div className='history'>
@@ -143,6 +150,17 @@ const Content = styled.div`
       align-items: center;
       gap: 0.5rem;
       color: ${({ theme }) => theme.text2};
+    }
+  }
+
+  .proof {
+    text-align: end;
+    cursor: pointer;
+    p {
+      font-size: 19px;
+      color: ${({ theme }) => theme.gray};
+      font-weight: 600;
+      
     }
   }
 `

@@ -1,8 +1,83 @@
-import React from 'react'
+import React ,{useState , useEffect , useRef} from 'react'
 import styled from 'styled-components'
+import {getAuth , onAuthStateChanged} from 'firebase/auth'
 import { AiOutlineClose } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
+import {addDoc , collection , serverTimestamp } from 'firebase/firestore'
+import {db} from '../../firebase.config'
+import Spinner from '../Spinner'
+import { toast } from 'react-toastify'
 
 function Withdrawl({setBitcoin}) {
+  const [loading , setLoading] = useState(false)
+  const [formData , setFormData] = useState({
+    amount:'',
+    type: 'Withdrawal',
+    method:'Btc',
+    status:'pending',
+    walletAddress:''
+  })
+  const {amount , walletAddress} = formData
+  const auth = getAuth()
+  const isMounted = useRef(true)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if(isMounted){
+      onAuthStateChanged(auth , (user) => {
+        if(user){
+          setFormData({...formData , userRef: user.uid})
+        }else{
+          navigate('/sign-in')
+        }
+      })
+
+    }
+
+    return() =>{
+      isMounted.current = false
+    }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  } , [isMounted])
+
+ 
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+     const formDataCopy = {
+       ...formData,
+       timestamp: serverTimestamp(),
+     }
+     setLoading(true)
+     try {
+      const docRef = await addDoc(collection(db , 'transactions') , formDataCopy)
+      toast.success('Withdrawal request is beign processed')
+      setLoading(false)
+      setFormData('')
+      
+     } catch (error) {
+      toast.error('Please try again')
+      setLoading(false)
+      setFormData('')
+      
+     }
+
+  }
+  const handleChange = (e) => {
+    setFormData((prevState)=> ({
+      ...prevState,
+      [e.target.id]: e.target.value
+
+    }))
+
+  }
+
+  if(loading){
+    return <Spinner/>
+
+  }
+
+  
   return (
     <Container>
       <Main>
@@ -12,13 +87,13 @@ function Withdrawl({setBitcoin}) {
         <div className='request'>
           <p>Request Widthdraw</p>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className='formControl'>
-            <input type='text' placeholder='Enter Amount' />
+            <input onChange={handleChange} id='amount' required value={amount} type='text' placeholder='Enter Amount' />
             <label htmlFor=''>Enter Amount to Withdraw</label>
           </div>
           <div className='formControl'>
-            <input type='text' placeholder='Enter Address' />
+            <input required onChange={handleChange} id='walletAddress' value={walletAddress} type='text' placeholder='Enter Address' />
             <label htmlFor=''>Enter wallet address</label>
           </div>
           <div className='withdraw'>

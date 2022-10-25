@@ -1,8 +1,82 @@
-import React from 'react'
+import React, { useState , useEffect , useRef } from 'react'
 import styled from 'styled-components'
 import { AiOutlineClose } from 'react-icons/ai'
+import {getAuth , onAuthStateChanged} from 'firebase/auth'
+import {addDoc , collection , serverTimestamp} from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
+import {db} from '../../firebase.config'
+import Spinner from '../Spinner'
+import {toast} from 'react-toastify'
+
 
 function ViaBank({setBank}) {
+  const [loading , setLoading] = useState(false)
+
+  const [formData , setFormData] = useState({
+    amount:'',
+    method:'Bank Transfer',
+    type:'Withdrawal',
+    status:'pending',
+    bankname:''
+  })
+
+  const {amount , bankname} = formData
+  const auth = getAuth()
+  const isMounted = useRef(true)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (isMounted) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setFormData({ ...formData, userRef: user.uid })
+        } else {
+          navigate('/sign-in')
+        }
+      })
+    }
+
+    return () => {
+      isMounted.current = false
+    }
+     //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMounted])
+
+
+  const handleChange = (e) => {
+   setFormData((prevState) => ({
+    ...prevState,
+    [e.target.id]: e.target.value
+
+   }))
+
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const formDataCopy = {
+      ...formData,
+      timestamp: serverTimestamp(),
+    }
+    setLoading(true)
+    try {
+      const docRef = await addDoc(
+        collection(db, 'transactions'),
+        formDataCopy
+      )
+      toast.success('Withdrawal request is beign processed')
+      setLoading(false)
+      setFormData('')
+    } catch (error) {
+      toast.error('Please try again')
+      setLoading(false)
+      setFormData('')
+    }
+  }
+
+  if(loading){
+    return <Spinner/>
+  }
+
   return (
     <Container>
       <Main>
@@ -12,22 +86,22 @@ function ViaBank({setBank}) {
         <div className='request'>
           <p>Request Widthdraw</p>
         </div>
-        <form>
+        <form onSubmit={handleSubmit} >
           <div className='formControl' >
-            <input type='text' required placeholder='Enter Amount' />
+            <input onChange={handleChange} id='amount' value={amount} type='text' required placeholder='Enter Amount' />
             <label htmlFor=''>Enter Amount to Withdraw</label>
           </div>
           <div className='formControl'>
-            <select name='bankname' required>
+            <select onChange={handleChange} id='bankname' value={bankname} name='bankname' required>
               <option selected='selected' value='0'>
                 --Choose Bank --
               </option>
-              <option value='1'>JPMORGAN </option>
-              <option value='2'>BANK OF AMERICA</option>
-              <option value='3'>WELLS FARGO</option>
-              <option value='29'>CITIBANK</option>
-              <option value='4'>U.S. BASNCORP</option>
-              <option value='6'>OTHERS</option>
+              <option value='JPMORGAN'>JPMORGAN </option>
+              <option value='BANK OF AMERICA'>BANK OF AMERICA</option>
+              <option value='WELLS FARGO'>WELLS FARGO</option>
+              <option value='CITIBANK'>CITIBANK</option>
+              <option value='US BANCORP'>U.S. BASNCORP</option>
+              <option value='OTHERS'>OTHERS</option>
             </select>
             <label htmlFor=''>Select Bank</label>
           </div>
