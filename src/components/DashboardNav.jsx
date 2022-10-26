@@ -12,6 +12,7 @@ const navigate = useNavigate()
 const auth = getAuth()
 const handleClick = () => {
   auth.signOut()
+
   navigate('/sign-in')
 
 }

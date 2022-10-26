@@ -7,6 +7,7 @@ import TransactionHistory from '../components/TransactionHistory'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from 'react-icons/fa'
 import {toast} from 'react-toastify'
+import ProofOfPayment from '../components/modals/ProofOfPayment'
 function FundAccount() {
   const [proof, setProof] = useState(false)
 
@@ -36,11 +37,12 @@ function FundAccount() {
             />
             <FiCopy onClick={handleCopy} />
           </div>
-          <div className='proof'>
+          <div onClick={() => setProof(true)} className='proof'>
             <p>
               Proof of payment
             </p>
           </div>
+          {proof && <ProofOfPayment setProof={setProof} />}
           <TransactionTable>
             <div className='history'>
               <p>See Transaction History</p>
@@ -158,7 +160,7 @@ const Content = styled.div`
     cursor: pointer;
     p {
       font-size: 19px;
-      color: ${({ theme }) => theme.gray};
+      color: ${({ theme }) => theme.bgRed};
       font-weight: 600;
       
     }

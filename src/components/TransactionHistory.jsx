@@ -51,6 +51,11 @@ const Main = styled.div`
   .dataTable {
     border: 2px solid ${({ theme }) => theme.bgBlue};
     font-size: 18px;
+    z-index: -10;
+    @media screen and (max-width:890px) {
+      width: 95vw;
+      
+    }
     .header {
       background-color: ${({ theme }) => theme.bgBlue};
       color: ${({ theme }) => theme.text2};
