@@ -173,12 +173,12 @@ const TransactionTable = styled.div`
   gap: 1.5rem;
   .history {
     width: fit-content;
-    padding: 0.7rem;
-    border-radius: 2rem;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
     font-size: 15px;
     font-weight: 700;
     color: ${({ theme }) => theme.gray};
-    border: 3px solid ${({ theme }) => theme.bgRed};
+    border-bottom: 3px solid ${({ theme }) => theme.bgRed};
   }
 `
 

@@ -1,9 +1,55 @@
-import React from 'react'
+import React, { useState , useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import styled from 'styled-components'
-
+import {collection , getDocs , query , where , orderBy , limit , startAfter} from 'firebase/firestore'
+import {db} from '../firebase.config'
+import {getAuth} from 'firebase/auth'
 
 function TransactionHistory() {
+  const [transactions , setTransactions] = useState(null)
+  const [loading , setLoading] = useState(false)
+
+  const auth = getAuth()
+
+
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      try {
+        const transactionRef = collection(db , 'transactions')
+        const q = query(
+          transactionRef,
+          where('userRef', '==' , auth.currentUser.uid),
+          orderBy('timestamp' , 'desc'),
+          limit(5)
+        )
+        
+
+        const querySnap = await getDocs(q)
+        const transaction = []
+
+        querySnap.forEach((doc) => {
+          transaction.push({
+            id: doc.id,
+            data: doc.data()
+          })
+        console.log(doc.data())
+        })
+
+        setTransactions(transaction)
+        
+
+        
+      } catch (error) {
+        console.log('Something is wrong')
+      }
+
+    }
+
+    fetchTransactions()
+
+
+  }, [])
     
 const columns = [
   { field: 'date', headerName: 'Date', width: 225, headerClassName: 'header' },
@@ -27,21 +73,18 @@ const columns = [
   },
 ]
 
-const rows = [
-  
-
-]
+const  [rows , setRows] = useState('')
   return (
-    <Main>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={3}
-        rowsPerPageOptions={[5]}
-        className='dataTable'
-        re
-      />
-    </Main>
+      <Main>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={3}
+          rowsPerPageOptions={[5]}
+          className='dataTable'
+          re
+        />
+      </Main>
   )
 }
 
