@@ -6,12 +6,6 @@ import {
   updateDoc,
   getDoc,
   doc,
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  deleteDoc,
 } from 'firebase/firestore'
 import Spinner from './Spinner'
 import { toast } from 'react-toastify'
