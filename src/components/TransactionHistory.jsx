@@ -18,14 +18,13 @@ function TransactionHistory() {
     const fetchTransactions = async () => {
       try {
         setLoading(true)
-        const transactionRef = collection(db , 'transactions')
+        const transactionRef = collection(db, 'transactions')
         const q = query(
           transactionRef,
-          where('userRef', '==' , auth.currentUser.uid),
-          orderBy('timestamp' , 'desc'),
+          where('userRef', '==', auth.currentUser.uid),
+          orderBy('timestamp', 'desc'),
           limit(4)
         )
-        
 
         const querySnap = await getDocs(q)
         const transaction = []
@@ -33,26 +32,20 @@ function TransactionHistory() {
         querySnap.forEach((doc) => {
           transaction.push({
             id: doc.id,
-            data: doc.data()
+            data: doc.data(),
           })
         })
 
         setTransactions(transaction)
         setLoading(false)
-        
-
-        
       } catch (error) {
         toast.error('Something is wrong')
         setLoading(false)
       }
-
     }
 
     fetchTransactions()
-
-
-  }, [])
+  }, [auth.currentUser.uid])
 
   if(loading){
     return <Spinner/> 

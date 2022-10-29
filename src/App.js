@@ -67,11 +67,6 @@ function App() {
               <Route path='/dashboard' element={<PrivateRoute />}>
                 <Route path='/dashboard' element={<Dashboard />} />
               </Route>
-
-              {/* <Route path='/withdraw' element={<Withdraw />} />
-              <Route path='/transactions' element={<Transactions />} />
-              <Route path='/invest' element={<Invest />} />
-              <Route path='/settings' element={<Settings />} /> */}
             </Routes>
           </Router>
         </ThemeProvider>

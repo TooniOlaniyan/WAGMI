@@ -1,11 +1,12 @@
 import React , {useState , useEffect} from 'react'
 import styled from 'styled-components'
-import { getAuth, updateProfile } from 'firebase/auth'
+import { getAuth, updateProfile , } from 'firebase/auth'
 import { db } from '../firebase.config'
 import {
   updateDoc,
   getDoc,
   doc,
+  setDoc
 } from 'firebase/firestore'
 import Spinner from './Spinner'
 import { toast } from 'react-toastify'
@@ -15,12 +16,10 @@ function UpdateProfile() {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [formData , setFormData] = useState({
-      number:'',
-      username:'',
       state:''
     })
 
-    const {number , username , state} = formData
+    const {state} = formData
 
     const handleChange = (e) => {
           setFormData((prevState) => ({
@@ -34,18 +33,11 @@ function UpdateProfile() {
       e.preventDefault()
       try {
         setLoading(true)
-        if(auth.currentUser.displayName !== username){
-         await updateProfile(auth.currentUser,{
-            displayName: username
-          })
-
-        }
-          const userRef = doc(db, 'users', auth.currentUser.uid)
+        const userRef = doc(db, 'users', auth.currentUser.uid)
         await updateDoc(userRef, {
-          number,
-          username,
-          state
+          state: state,
         })
+        
         toast.success('Profile Update successful')
         setLoading(false)
       
@@ -93,13 +85,13 @@ function UpdateProfile() {
           <label htmlFor=''>Email</label>
         </div>
         <div className='formControl'>
-          <input  onChange={handleChange} id='number' value={number} type='number' placeholder={data.number} />
+          <input  disabled id='number'  type='number' placeholder={data.number} />
           <label className='editable' htmlFor=''>
             Phone Number
           </label>
         </div>
         <div className='formControl'>
-          <input  onChange={handleChange} id='username' value={username} type='text' placeholder={data.username} />
+          <input disabled  type='text' placeholder={data.username} />
           <label className='editable' htmlFor=''>Username</label>
         </div>
         <div className='formControl'>

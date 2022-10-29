@@ -14,11 +14,6 @@ function Invest() {
         <DashboardNav />
         <Content>
           <DashboardPricing/>
-          {/* <ExternalLinks>
-            <Link to='/'>Trade Republic</Link>
-            <p>|</p>
-            <Link to='/contact-us'>Contact Us</Link>
-          </ExternalLinks> */}
         </Content>
       </MainContainer>
     </Main>
