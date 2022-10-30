@@ -2,49 +2,18 @@ import React from 'react'
 import DashboardNav from '../components/DashboardNav'
 import DashboardSideBar from '../components/DashboardSideBar'
 import styled from 'styled-components'
-import { useEffect, useState } from 'react'
-import {
-  getDocs,
-  collection,
-  query,
-  where,
-  startAfter,
-  orderBy,
-  limit,
-} from 'firebase/firestore'
-import {db} from '../firebase.config'
+import TransactionPageHistory from '../components/TransactionPageHistory'
+
+
 function Transactions() {
-   const [transactions, setTransactions] = useState([{}])
-
-     useEffect(() => {
-       const fetchTrasaction = async () => {
-         try {
-           const transactionRef = collection(db, 'transactions')
-           const q = query(
-             transactionRef,
-             orderBy('timestamp', 'desc'),
-             limit(2)
-           )
-
-           const querySnap = await getDocs(q)
-           let transaction = []
-
-           querySnap.forEach((doc) => {
-             console.log(doc.data())
-           })
-         } catch (error) {
-          
-         }
-       }
-
-       fetchTrasaction()
-     })
   return (
     <Main>
       <DashboardSideBar />
       <MainContainer>
         <DashboardNav />
-        <Content></Content>
+        <Content>
+         <TransactionPageHistory/>
+        </Content>
       </MainContainer>
     </Main>
   )

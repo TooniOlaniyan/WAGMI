@@ -18,7 +18,7 @@ function Regular({ setRegular }) {
     type:'regular'
   })
 
-  const {amount , method} = useState()
+  const {amount , method} = formData
   const auth = getAuth()
   const isMounted = useRef(true)
   const navigate = useNavigate()
@@ -55,26 +55,27 @@ function Regular({ setRegular }) {
       timestamp:serverTimestamp()
     }
     setLoading(true)
-    if(amount > 5000){
-        try {
-         const docRef = await addDoc(
-           collection(db, 'investments'),
-           formDataCopy
-         )
-         toast.success('Investment made successfully')
-         setLoading(false)
-         setFormData('')
-      
-    } catch (error) {
-      toast.error('Something went wrong, please try again')
-      setFormData('')
-      setLoading(false)
-      
-    }
+    if(amount >=5000 && amount <= 49999){
+         try {
+           const docRef = await addDoc(
+             collection(db, 'investments'),
+             formDataCopy
+           )
+           toast.success('Investment made successfully')
+           setLoading(false)
+           setFormData('')
+         } catch (error) {
+           toast.error('Something went wrong, please try again')
+           setFormData('')
+           setLoading(false)
+         }
     }else{
-      toast.error('Investment must be at least $5000 and less than $49999')
+      toast.error('Investment has to be more than $5000 and less than $49,999')
       setLoading(false)
     }
+    
+     
+
 
 
   }
@@ -102,9 +103,10 @@ function Regular({ setRegular }) {
         <form onSubmit={handleSubmit}>
           <div className='formControl'>
             <label htmlFor=''>Select wallet</label>
-            <select onChange={handleChange} name='method' id='method'>
-              <option value='depositWallet'>Deposit wallet</option>
-              <option value='profitWallet'>Profit wallet</option>
+            <select onChange={handleChange}  id='method' value={method}>
+              <option value="select">Select wallet</option>
+              <option value='deposit-wallet'>Deposit wallet</option>
+              <option value='profit-wallet'>Profit wallet</option>
             </select>
           </div>
           <div className='formControl'>

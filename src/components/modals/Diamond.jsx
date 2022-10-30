@@ -17,7 +17,7 @@ function Diamond({ setDiamond }) {
     type: 'diamond',
   })
 
-  const { amount, method } = useState()
+  const { amount, method } = formData
   const auth = getAuth()
   const isMounted = useRef(true)
   const navigate = useNavigate()
@@ -53,25 +53,24 @@ function Diamond({ setDiamond }) {
       timestamp: serverTimestamp(),
     }
     setLoading(true)
-    if(amount >= 100000){
-         try {
-           const docRef = await addDoc(
-             collection(db, 'investments'),
-             formDataCopy
-           )
-           toast.success('Investment made successfully')
-           setLoading(false)
-           setFormData('')
-         } catch (error) {
-           toast.error('Something went wrong, please try again')
-           setFormData('')
-           setLoading(false)
-         }
-    }else{
-      toast.error('Investment must be more than $10000')
+     if(amount>=100000){
+          try {
+            const docRef = await addDoc(
+              collection(db, 'investments'),
+              formDataCopy
+            )
+            toast.success('Investment made successfully')
+            setLoading(false)
+            setFormData('')
+          } catch (error) {
+            toast.error('Something went wrong, please try again')
+            setFormData('')
+            setLoading(false)
+          }
+     }else{
+      toast.error('Investment cannot be less than $100,000')
       setLoading(false)
-
-    }
+     }
   }
 
   if (loading) {
@@ -97,7 +96,7 @@ function Diamond({ setDiamond }) {
         <form onSubmit={handleSubmit}>
           <div className='formControl'>
             <label htmlFor=''>Select wallet</label>
-            <select onChange={handleChange} name='method' id='method'>
+            <select value={method} onChange={handleChange} name='method' id='method'>
               <option value='depositWallet'>Deposit wallet</option>
               <option value='profitWallet'>Profit wallet</option>
             </select>

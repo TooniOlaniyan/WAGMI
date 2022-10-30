@@ -6,11 +6,14 @@ import {getAuth} from 'firebase/auth'
 import {toast} from 'react-toastify'
 import Spinner from './Spinner'
 
+
 function TransactionHistory() {
   const [transactions , setTransactions] = useState(null)
   const [loading , setLoading] = useState(false)
 
   const auth = getAuth()
+
+  
 
 
 
@@ -35,6 +38,7 @@ function TransactionHistory() {
             data: doc.data(),
           })
         })
+       
 
         setTransactions(transaction)
         setLoading(false)
@@ -76,17 +80,17 @@ function TransactionHistory() {
           {transactions.map((transact) => (
             <DashboardTableItem key={transact.id}>
               <div className='container'>
-                <p>28/11/2022</p>
+                <p>{transact.data.timestamp.toDate().toDateString()}</p>
                 <p>$ {transact.data.amount}</p>
                 <p>{transact.data.method}</p>
                 <p>{transact.data.type}</p>
                 <p>{transact.data.status}</p>
               </div>
-
             </DashboardTableItem>
           ))}
         </DashboardTableBody>
       )}
+    
     </DashboardTableContainer>
   )
 }
@@ -173,11 +177,12 @@ const DashboardTableBody = styled.div`
 const DashboardTableItem = styled.div`
   /* height: 10vh; */
   margin-bottom: 2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.gray};
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+
     p {
       flex: 1;
       color: ${({ theme }) => theme.text2};

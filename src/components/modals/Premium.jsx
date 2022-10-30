@@ -16,7 +16,7 @@ function Premium({ setPremium }) {
     status: 'pending',
     type: 'premium',
   })
-  const { amount, method } = useState()
+  const { amount, method } = formData
   const auth = getAuth()
   const isMounted = useRef(true)
   const navigate = useNavigate()
@@ -52,22 +52,22 @@ function Premium({ setPremium }) {
         timestamp: serverTimestamp(),
       }
       setLoading(true)
-      if (amount >= 50000 || amount > 99999) {
-        try {
-          const docRef = await addDoc(
-            collection(db, 'investments'),
-            formDataCopy
-          )
-          toast.success('Investment made successfully')
-          setLoading(false)
-          setFormData('')
-        } catch (error) {
-          toast.error('Something went wrong, please try again')
-          setFormData('')
-          setLoading(false)
-        }
-      } else {
-        toast.error('Investment must be more than $50000')
+      if(amount >=50000 && amount <=99999){
+          try {
+            const docRef = await addDoc(
+              collection(db, 'investments'),
+              formDataCopy
+            )
+            toast.success('Investment made successfully')
+            setLoading(false)
+            setFormData('')
+          } catch (error) {
+            toast.error('Something went wrong, please try again')
+            setFormData('')
+            setLoading(false)
+          }
+      }else{
+        toast.error('Investments must be more than $50000 and less than $99,999')
         setLoading(false)
       }
     }
@@ -95,7 +95,7 @@ function Premium({ setPremium }) {
         <form onSubmit={handleSubmit}>
           <div className='formControl'>
             <label htmlFor=''>Select wallet</label>
-            <select name='method' id='method'>
+            <select value={method} name='method' id='method'>
               <option value='depositWallet'>Deposit wallet</option>
               <option value='profitWallet'>Profit wallet</option>
             </select>
