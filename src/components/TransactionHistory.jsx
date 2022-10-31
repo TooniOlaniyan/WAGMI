@@ -97,12 +97,21 @@ function TransactionHistory() {
 
 const DashboardTableContainer = styled.div`
   height: 100%;
+  @media screen and (max-width:890px) {
+    width: 98vw;
+    overflow-x: scroll;
+    
+  }
 `
 
 const DashboardTableHead = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 890px) {
+    width: 900px;
+    overflow-x: scroll;
+  }
 
   div {
     display: flex;
@@ -115,31 +124,31 @@ const DashboardTableHead = styled.div`
     &:first-child {
       width: 18rem;
       justify-content: center;
-      flex:1;
+      flex: 1;
     }
 
     &:nth-child(2) {
       width: 14rem;
-      flex:1;
+      flex: 1;
     }
 
     &:nth-child(3) {
       width: 11rem;
-      flex:1;
+      flex: 1;
     }
 
     &:nth-child(4) {
       width: 6rem;
-      flex:1;
+      flex: 1;
     }
     &:nth-child(5) {
       width: 7.5rem;
-      flex:1;
+      flex: 1;
     }
 
     &:last-child {
       width: 5rem;
-      flex:1;
+      flex: 1;
     }
   }
 `
@@ -173,6 +182,10 @@ const DashboardTableBody = styled.div`
   background-color: ${({ theme }) => theme.bgBlue};
   padding: 2rem;
   border-radius: 1rem;
+  @media screen and (max-width: 890px) {
+    width: 900px;
+  
+  }
 `
 const DashboardTableItem = styled.div`
   /* height: 10vh; */

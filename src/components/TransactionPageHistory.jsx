@@ -165,12 +165,20 @@ const Content = styled.div`
 `
 const DashboardTableContainer = styled.div`
   height: 100%;
+  @media screen and (max-width: 890px) {
+    width: 98vw;
+    overflow-x: scroll;
+  }
 `
 
 const DashboardTableHead = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 890px) {
+    width: 900px;
+    overflow-x: scroll;
+  }
 
   div {
     display: flex;
@@ -240,6 +248,9 @@ const DashboardTableBody = styled.div`
   background-color: ${({ theme }) => theme.bgBlue};
   padding: 2rem;
   border-radius: 1rem;
+  @media screen and (max-width: 890px) {
+    width: 900px;
+  }
 `
 const DashboardTableItem = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.gray};

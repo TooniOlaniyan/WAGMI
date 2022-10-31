@@ -75,7 +75,7 @@ function UpdateProfile() {
       <div className='edit'>
         <p>Update Profile</p>
       </div>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <div className='formControl'>
           <input id='name' disabled type='text' placeholder={data.name} />
           <label htmlFor=''>Name</label>
@@ -85,21 +85,42 @@ function UpdateProfile() {
           <label htmlFor=''>Email</label>
         </div>
         <div className='formControl'>
-          <input  disabled id='number'  type='number' placeholder={data.number} />
+          <input disabled id='number' type='number' placeholder={data.number} />
           <label className='editable' htmlFor=''>
             Phone Number
           </label>
         </div>
         <div className='formControl'>
-          <input disabled  type='text' placeholder={data.username} />
-          <label className='editable' htmlFor=''>Username</label>
-        </div>
-        <div className='formControl'>
-          <input  onChange={handleChange} id='state' value={state} type='text' placeholder='Enter State' />
+          <input disabled type='text' placeholder={data.username} />
           <label className='editable' htmlFor=''>
-            Add State
+            Username
           </label>
         </div>
+        {data.state === '' ? (
+          <div className='formControl'>
+            <input
+              onChange={handleChange}
+              id='state'
+              value={state}
+              type='text'
+              placeholder='Enter State'
+            />
+            <label className='editable' htmlFor=''>
+              Add State
+            </label>
+          </div>
+        ) : (
+          <div className='formControl'>
+            <input
+             disabled
+              type='text'
+              placeholder={data.state}
+            />
+            <label className='editable' htmlFor=''>
+              State
+            </label>
+          </div>
+        )}
         <div className='update'>
           <button>Update</button>
         </div>
