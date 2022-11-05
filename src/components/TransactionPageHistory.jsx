@@ -118,7 +118,7 @@ function TransactionPageHistory() {
           </NoDashboardDataTableBody>
         )}
 
-        {transactions && transactions.length > 0 && (
+        {transactions && transactions.length > 0 ? (
           <DashboardTableBody>
             {transactions.map((transact) => (
               <DashboardTableItem key={transact.id}>
@@ -132,13 +132,23 @@ function TransactionPageHistory() {
               </DashboardTableItem>
             ))}
           </DashboardTableBody>
+        ) : (
+          <NoDashboardDataTableBody>
+            <p>
+              You have no transaction with us <br /> yet. Why?
+            </p>
+          </NoDashboardDataTableBody>
         )}
       </DashboardTableContainer>
-      <div onClick={onFetchMore} className='getMore'>
+      {transactions ? (
+        <div onClick={onFetchMore} className='getMore'>
           <p>
             Load More <FaArrowRight />
           </p>
-      </div>
+        </div>
+      ) : (
+        ''
+      )}
     </Content>
   )
 }

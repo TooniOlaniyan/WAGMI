@@ -11,7 +11,7 @@ function DashboardSideBar() {
   return (
     <Main>
       <div className='logoContainer'>
-        <p>Trade Rebublic</p>
+        <p>Trade Republican</p>
       </div>
       <div className='logo'>
         <img src={logo} alt='' />
@@ -131,7 +131,7 @@ const Main = styled.div`
   }
   .logoContainer {
     p {
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 800;
       color: ${({ theme }) => theme.bgBlue};
     }

@@ -27,7 +27,7 @@ function Header() {
         <div className='logoContainer'>
           <img src={logo} alt='' />
           <Link to='/'>
-            <p className='logo'>Trade Rebublic</p>
+            <p className='logo'>Trade Republican</p>
           </Link>
         </div>
         {/* middle */}
@@ -96,7 +96,7 @@ const Main = styled.div`
   
   background-color: ${({ theme }) => theme.text2};
   @media screen and (max-width: 890px) {
-    padding: 0.5rem 0.8rem;
+    padding: 0.5rem;
     justify-content: space-between;
   }
   .logoContainer {
@@ -118,12 +118,12 @@ const Main = styled.div`
     }
     .logo {
       color: ${({ theme }) => theme.bgRed};
-      font-size: 25px;
+      font-size: 23px;
       font-weight: 700;
       font-family: 'Abyssinica SIL', serif;
       letter-spacing: 0.2rem;
       @media screen and (max-width: 890px) {
-        font-size: 19px;
+        font-size: 15px;
         letter-spacing: 0;
       }
     }

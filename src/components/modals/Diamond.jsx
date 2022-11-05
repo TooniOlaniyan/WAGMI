@@ -4,7 +4,7 @@ import { AiOutlineClose, AiOutlineCheck } from 'react-icons/ai'
 import Spinner from '../Spinner'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
+import { addDoc, doc , getDoc ,  collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../../firebase.config'
 import { toast } from 'react-toastify'
 
@@ -16,6 +16,7 @@ function Diamond({ setDiamond }) {
     status: 'pending',
     type: 'diamond',
   })
+  const [userData, setUserData] = useState([])
 
   const { amount, method } = formData
   const auth = getAuth()
@@ -23,6 +24,19 @@ function Diamond({ setDiamond }) {
   const navigate = useNavigate()
 
   useEffect(() => {
+      const fetchData = async () => {
+        const docRef = doc(db, 'users', auth.currentUser.uid)
+        const docSnap = await getDoc(docRef)
+
+        if (docSnap.exists()) {
+          setUserData(docSnap.data())
+          setLoading(false)
+        } else {
+          // doc.data() will be undefined in this case
+          console.log('No such document!')
+        }
+      }
+      fetchData()
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -54,19 +68,29 @@ function Diamond({ setDiamond }) {
     }
     setLoading(true)
      if(amount>=100000){
-          try {
-            const docRef = await addDoc(
-              collection(db, 'investments'),
-              formDataCopy
-            )
-            toast.success('Investment made successfully')
-            setLoading(false)
-            setFormData('')
-          } catch (error) {
-            toast.error('Something went wrong, please try again')
-            setFormData('')
-            setLoading(false)
-          }
+         if (method === 'deposit-wallet' || method === 'profit-wallet') {
+           if (userData.deposit > 100000 || userData.profit > 100000) {
+             try {
+               const docRef = await addDoc(
+                 collection(db, 'investments'),
+                 formDataCopy
+               )
+               toast.success('Investment request is processing')
+               setLoading(false)
+               setFormData('')
+             } catch (error) {
+               toast.error('Something went wrong, please try again')
+               setFormData('')
+               setLoading(false)
+             }
+           } else {
+             toast.error('Not enough money in wallet')
+             setLoading(false)
+           }
+         } else {
+           toast.error('Choose another wallet')
+           setLoading(false)
+         }
      }else{
       toast.error('Investment cannot be less than $100,000')
       setLoading(false)
@@ -96,9 +120,15 @@ function Diamond({ setDiamond }) {
         <form onSubmit={handleSubmit}>
           <div className='formControl'>
             <label htmlFor=''>Select wallet</label>
-            <select value={method} onChange={handleChange} name='method' id='method'>
-              <option value='depositWallet'>Deposit wallet</option>
-              <option value='profitWallet'>Profit wallet</option>
+            <select
+              value={method}
+              onChange={handleChange}
+              name='method'
+              id='method'
+            >
+              <option value='select'>Select wallet</option>
+              <option value='deposit-wallet'>Deposit wallet</option>
+              <option value='profit-wallet'>Profit wallet</option>
             </select>
           </div>
           <div className='formControl'>

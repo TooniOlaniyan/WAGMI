@@ -56,7 +56,7 @@ const Main = styled.div`
     font-family: 'Open Sans', sans-serif;
     @media screen and (max-width: 890px) {
      
-      font-size: 30px;
+      font-size: 26px;
       text-align: center;
       width: 100vw;
     }

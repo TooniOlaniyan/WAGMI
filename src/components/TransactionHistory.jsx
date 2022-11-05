@@ -67,15 +67,15 @@ function TransactionHistory() {
       </DashboardTableHead>
       <DashboardTableLine />
 
-      {!transactions && (
+      {/* {!transactions && (
         <NoDashboardDataTableBody>
           <p>
             You have no transaction with us <br /> yet. Why?
           </p>
         </NoDashboardDataTableBody>
-      )}
+      )} */}
 
-      {transactions && transactions.length > 0 && (
+      {transactions && transactions.length > 0 ? (
         <DashboardTableBody>
           {transactions.map((transact) => (
             <DashboardTableItem key={transact.id}>
@@ -89,8 +89,13 @@ function TransactionHistory() {
             </DashboardTableItem>
           ))}
         </DashboardTableBody>
+      ) : (
+        <NoDashboardDataTableBody>
+          <p>
+            You have no transaction with us <br /> yet. Why?
+          </p>
+        </NoDashboardDataTableBody>
       )}
-    
     </DashboardTableContainer>
   )
 }
@@ -160,19 +165,22 @@ const DashboardTableLine = styled.div`
 `
 
 const NoDashboardDataTableBody = styled.div`
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   height: 30vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 890px) {
+    width: 80vw;
+  }
 
   p {
     text-align: center;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
-    color: #c6c6c6;
+    color: ${({ theme }) => theme.bgBlue};
     margin-top: -30px;
   }
 `

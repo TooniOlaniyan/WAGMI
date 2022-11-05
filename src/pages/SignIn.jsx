@@ -52,7 +52,7 @@ function SignIn() {
       <div className='logoContainer'>
         <img src={logo} alt='' />
         <Link to='/'>
-          <p className='logo'>Trade Rebublic</p>
+          <p className='logo'>Trade Republican</p>
         </Link>
       </div>
       <div className='header'>

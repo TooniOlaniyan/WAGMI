@@ -47,9 +47,10 @@ function SignUp() {
                 })
                 const formDataCopy = { ...formData }
                 formDataCopy.timestamp = serverTimestamp()
-                formDataCopy.deposit = '$0'
-                formDataCopy.profit = '$0'
-                formDataCopy.withdraw = '$0'
+                formData.lastLoggedIn = auth.currentUser.metadata.lastSignInTime()
+                formDataCopy.deposit = '0'
+                formDataCopy.profit = '0'
+                formDataCopy.withdraw = '0'
                 await setDoc(doc(db, 'users', user.uid), formDataCopy)
                 setLoading(false)
                 navigate('/dashboard')
@@ -82,7 +83,7 @@ function SignUp() {
       <div className='logoContainer'>
         <img src={logo} alt='' />
         <Link to='/'>
-          <p className='logo'>Trade Rebublic</p>
+          <p className='logo'>Trade Republican</p>
         </Link>
       </div>
       <div className='flag'>
@@ -546,7 +547,7 @@ const Main = styled.div`
   }
   .header {
     .head {
-      font-size: 50px;
+      font-size: 45px;
       font-weight: 400;
     }
   }

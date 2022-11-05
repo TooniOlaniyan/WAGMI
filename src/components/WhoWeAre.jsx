@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import whoAre from '../assets/whoAre.jpg'
 import miller from '../assets/miller.jpg'
 import steve from '../assets/steve.jpg'
+import edward from '../assets/edward.jpg'
 
 function WhoWeAre() {
   return (
@@ -14,7 +15,7 @@ function WhoWeAre() {
         <Text>
           <h2>ABOUT US</h2>
           <p>
-            Trade Republic is a National success and trust worthy Crypto
+            Trade Republican is a National success and trust worthy Crypto
             currency investment platform with the most convenient trading
             interface. Instant access to more than 100 assets of the world's
             leading companies. We offer lucrative crypto currency investments,
@@ -48,7 +49,7 @@ function WhoWeAre() {
           </div>
           <div className='container'>
             <div className='imageContainer'>
-              <img src={miller} alt='' />
+              <img src={edward} alt='' />
             </div>
             <p className='name'>Edward Dowd</p>
           </div>
@@ -113,6 +114,7 @@ const Peoples = styled.div`
     font-size: 25px;
     font-weight: 900;
     color: ${({ theme }) => theme.bgRed};
+    text-decoration: underline;
   }
   p{
     text-align: center;

@@ -8,9 +8,9 @@ function Footer() {
     <Main data-scroll-section>
       <Top>
         <Details>
-          <p className='head'>Trade Rebublic</p>
+          <p className='head'>Trade Republican</p>
           <p className='title'>
-            Trade Republic is a conservative investment platform for elite
+            Trade Republican is a conservative investment platform for elite
             Republicans that provides you with the most necessary features that
             will make your experience better.
           </p>
@@ -62,7 +62,7 @@ function Footer() {
 
       <div className='copyright'>
         <p>
-          &#169; {year} <span>Trade Republic</span> copyright. All rights
+          &#169; {year} <span>Trade Republican</span> copyright. All rights
           reserved
         </p>
       </div>

@@ -65,14 +65,14 @@ function Reviews() {
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony='This platform is really made for people like us. Trade republic gave me a second chance, and i took it and never regreted. '
+                testimony='This platform is really made for people like us. Trade republican gave me a second chance, and i took it and never regreted. '
                 src={jacob}
                 name='Jacob Ledger'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony="Trade republic has made me and my family financially stable admist our country's inflation. i'd advice y'all take part in it's investment plans."
+                testimony="Trade republican has made me and my family financially stable admist our country's inflation. i'd advice y'all take part in it's investment plans."
                 src={smith}
                 name='Smith Stoll'
               />

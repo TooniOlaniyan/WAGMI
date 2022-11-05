@@ -96,7 +96,7 @@ function UpdateProfile() {
             Username
           </label>
         </div>
-        {data.state === '' ? (
+        {data.state == undefined ? (
           <div className='formControl'>
             <input
               onChange={handleChange}

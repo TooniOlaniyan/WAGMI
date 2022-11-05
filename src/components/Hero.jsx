@@ -8,8 +8,7 @@ function Hero() {
     <Main data-scroll-section>
       <Text>
         <p>
-          Trade Republic is a conservative investment platform for elite
-          Republicans that provides you with the most necessary features that
+          Trade Republican is a conservative investment platform for elite Republicans that provides you with the most necessary features that
           will make your experience better. Not only do we guarantee the fastest
           and the most exciting returns on your investments, we also guarantee
           the security of your investments.
@@ -67,7 +66,7 @@ const Text = styled.div`
     border: none;
     cursor: pointer;
     @media screen and (max-width: 890px) {
-      width: 50%;
+      width: max-content;
       font-size: 17px;
     }
   }

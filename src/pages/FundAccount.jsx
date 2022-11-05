@@ -27,20 +27,18 @@ function FundAccount() {
             <p>Fund Account</p>
           </div>
           <div className='text'>
-            <p>Copy address below to make deposit</p>
+            <p>Copy BTC address below to make deposit</p>
           </div>
           <div className='walletContainer'>
             <input
               type='text'
-              placeholder='bc1qh2ntfz4g7whl5chys0j94xv82du47mfh580y03'
+              placeholder='bc1qa6lmwpu5pd3tk3c5eaplrnncf3me5ml6zm3l0w'
               disabled
             />
             <FiCopy onClick={handleCopy} />
           </div>
           <div onClick={() => setProof(true)} className='proof'>
-            <p>
-              Proof of payment
-            </p>
+            <p>Proof of payment</p>
           </div>
           {proof && <ProofOfPayment setProof={setProof} />}
           <TransactionTable>

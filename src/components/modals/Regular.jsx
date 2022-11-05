@@ -4,7 +4,7 @@ import { AiOutlineClose, AiOutlineCheck } from 'react-icons/ai'
 import Spinner from '../Spinner'
 import {getAuth , onAuthStateChanged} from 'firebase/auth'
 import {useNavigate} from 'react-router-dom'
-import {addDoc , collection , serverTimestamp} from 'firebase/firestore'
+import {addDoc , doc , getDoc ,  collection , serverTimestamp} from 'firebase/firestore'
 import {db} from '../../firebase.config'
 import {toast} from 'react-toastify'
 
@@ -17,6 +17,7 @@ function Regular({ setRegular }) {
     status:'pending',
     type:'regular'
   })
+  const [userData , setUserData] = useState([])
 
   const {amount , method} = formData
   const auth = getAuth()
@@ -24,6 +25,19 @@ function Regular({ setRegular }) {
   const navigate = useNavigate()
 
   useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, 'users', auth.currentUser.uid)
+      const docSnap = await getDoc(docRef)
+
+      if (docSnap.exists()) {
+        setUserData(docSnap.data())
+        setLoading(false)
+      } else {
+    // doc.data() will be undefined in this case
+      console.log('No such document!')
+    }
+    }
+    fetchData()
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -55,20 +69,35 @@ function Regular({ setRegular }) {
       timestamp:serverTimestamp()
     }
     setLoading(true)
+    
     if(amount >=5000 && amount <= 49999){
-         try {
-           const docRef = await addDoc(
-             collection(db, 'investments'),
-             formDataCopy
-           )
-           toast.success('Investment made successfully')
-           setLoading(false)
-           setFormData('')
-         } catch (error) {
-           toast.error('Something went wrong, please try again')
-           setFormData('')
-           setLoading(false)
-         }
+       if(method ==='deposit-wallet' || method === 'profit-wallet'){
+        if(userData.deposit > 5000 || userData.profit > 5000){
+            try {
+              const docRef = await addDoc(
+                collection(db, 'investments'),
+                formDataCopy
+              )
+              toast.success('Investment request is processing')
+              setLoading(false)
+              setFormData('')
+            } catch (error) {
+              toast.error('Something went wrong, please try again')
+              setFormData('')
+              setLoading(false)
+            }
+
+        }else{
+          toast.error('Not enough money in wallet')
+          setLoading(false)
+
+        }
+
+       }else{
+        toast.error('Choose another wallet')
+        setLoading(false)
+
+       }
     }else{
       toast.error('Investment has to be more than $5000 and less than $49,999')
       setLoading(false)
