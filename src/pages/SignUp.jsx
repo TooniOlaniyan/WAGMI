@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Link , useNavigate } from 'react-router-dom'
-import {toast} from 'react-toastify'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
 import { BsArrowRight } from 'react-icons/bs'
@@ -11,69 +11,63 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
-import {db} from '../firebase.config'
+import { db } from '../firebase.config'
 import LoadingSpinner from '../components/LoadingSpinner'
 
 function SignUp() {
   const navigate = useNavigate()
-    const [isHidden , setIsHidden] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const [confirmIsHidden , setConfirmIsHidden] = useState(false)
-      const [formData, setFormData] = useState({
-        name: '',
-        username:'',
-        email: '',
-        number:'',
-        password: '',
-        confirmPassword:'',
-        country:''
-      })
-      const { name, username, email,number ,  password , confirmPassword } = formData
+  const [isHidden, setIsHidden] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [confirmIsHidden, setConfirmIsHidden] = useState(false)
+  const [formData, setFormData] = useState({
+    name: '',
+    username: '',
+    email: '',
+    number: '',
+    password: '',
+    confirmPassword: '',
+    country: '',
+  })
+  const { name, username, email, number, password, confirmPassword } = formData
 
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      if(password === confirmPassword){
-              try {
-                setLoading(true)
-                const auth = getAuth()
-                const userCredential = await createUserWithEmailAndPassword(
-                  auth,
-                  email,
-                  password
-                )
-                const user = userCredential.user
-                updateProfile(auth.currentUser, {
-                  displayName: username,
-                })
-                const formDataCopy = { ...formData }
-                formDataCopy.timestamp = serverTimestamp()
-                formData.lastLoggedIn = auth.currentUser.metadata.lastSignInTime()
-                formDataCopy.deposit = '0'
-                formDataCopy.profit = '0'
-                formDataCopy.withdraw = '0'
-                await setDoc(doc(db, 'users', user.uid), formDataCopy)
-                setLoading(false)
-                navigate('/dashboard')
-              } catch (error) {
-                console.log('ERROR')
-              }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (password === confirmPassword) {
+      try {
+        setLoading(true)
+        const auth = getAuth()
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        )
+        const user = userCredential.user
+        updateProfile(auth.currentUser, {
+          displayName: username,
+        })
+        const formDataCopy = { ...formData }
+        formDataCopy.timestamp = serverTimestamp()
+        formDataCopy.lastSignedIn = auth.currentUser.metadata.lastSignInTime
+        formDataCopy.deposit = '0'
+        formDataCopy.profit = '0'
+        formDataCopy.withdraw = '0'
+        await setDoc(doc(db, 'users', user.uid), formDataCopy)
+        setLoading(false)
+        navigate('/dashboard')
+      } catch (error) {
+        console.log('ERROR')
       }
-      else{
-        toast.error('Password must match')
-      }
-
-      
-     
-
+    } else {
+      toast.error('Password must match')
     }
+  }
 
-    const handleChange = (e) => {
-          setFormData((prevState) => ({
-            ...prevState,
-            [e.target.id]: e.target.value,
-          }))
-
-    }
+  const handleChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }))
+  }
 
   return (
     <Main>
@@ -507,14 +501,13 @@ function SignUp() {
             <option value='Zimbabwe'>Zimbabwe</option>
           </select>
         </div>
-        <button>Sign Up  {loading && <LoadingSpinner/>}  </button>
+        <button>Sign Up {loading && <LoadingSpinner />} </button>
         <div className='checkAccount'>
           <p>Got an account?</p>
           <Link to='/sign-in' style={{ textDecoration: 'none' }}>
             <span>Sign In</span> <BsArrowRight />
           </Link>
         </div>
-    
       </Form>
     </Main>
   )
@@ -528,7 +521,6 @@ const Main = styled.div`
   align-items: center;
   gap: 1rem;
   background-color: ${({ theme }) => theme.gray2};
-
   .flag {
     display: flex;
     justify-content: center;
@@ -547,8 +539,9 @@ const Main = styled.div`
   }
   .header {
     .head {
-      font-size: 45px;
+      font-size: 40px;
       font-weight: 400;
+      width: max-content;
     }
   }
   .logoContainer {
@@ -600,62 +593,60 @@ const Main = styled.div`
     }
   }
 `
-  const Form = styled.form`
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 30vw;
+  @media screen and (max-width: 890px) {
+    width: 95vw;
+  }
+  padding: 0.5rem 1rem;
+  button {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    font-size: 20px;
+    background-color: ${({ theme }) => theme.bgRed};
+    color: ${({ theme }) => theme.text2};
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+  /* background-color: red; */
+  .formControl {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    width: 30vw;
-    @media screen and (max-width: 890px) {
-      width: 95vw;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.8rem;
+    position: relative;
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
-
-    padding: 0.5rem 1rem;
-    button {
-      width: 100%;
-      padding: 0.5rem;
-      border: none;
-      font-size: 20px;
-      background-color: ${({ theme }) => theme.bgRed};
-      color: ${({ theme }) => theme.text2};
+    .icon {
+      position: absolute;
+      top: 3rem;
+      right: 1.5rem;
+      font-size: 22px;
       cursor: pointer;
-      &:focus {
-        outline: none;
-      }
     }
-    /* background-color: red; */
-    .formControl {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
+    label {
+      color: ${({ theme }) => theme.bgRed};
+    }
+    input,
+    select {
       width: 100%;
-      gap: 0.8rem;
-      position: relative;
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        
-      }
-      .icon {
-        position: absolute;
-        top: 3rem;
-        right: 1.5rem;
-        font-size: 22px;
-        cursor: pointer;
-      }
-      label {
-        color: ${({ theme }) => theme.bgRed};
-      }
-      input,
-      select {
-        width: 100%;
-        padding: 1rem 0.5rem;
-        border: 2px solid ${({ theme }) => theme.gray};
-        background-color: transparent;
-      }
+      padding: 1rem 0.5rem;
+      border: 2px solid ${({ theme }) => theme.gray};
+      background-color: transparent;
     }
-  `
+  }
+`
 export default SignUp

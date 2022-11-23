@@ -2,14 +2,13 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth'
-// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyC219CHQno19GZTnHR7BS21kb1HKxHRzoQ',
-  authDomain: 'traderepublican-3d1ba.firebaseapp.com',
-  projectId: 'traderepublican-3d1ba',
-  storageBucket: 'traderepublican-3d1ba.appspot.com',
-  messagingSenderId: '599939648431',
-  appId: '1:599939648431:web:5387a9c5923b13a2c53d5a',
+  apiKey: 'AIzaSyDQOMVL80CDGOKre9V5ZXV11DphNIfJWbI',
+  authDomain: 'traderepublic-e8675.firebaseapp.com',
+  projectId: 'traderepublic-e8675',
+  storageBucket: 'traderepublic-e8675.appspot.com',
+  messagingSenderId: '920929686625',
+  appId: '1:920929686625:web:b3c9e8084c3eb15b160620',
 }
 
 // Initialize Firebase

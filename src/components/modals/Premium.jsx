@@ -119,7 +119,7 @@ function Premium({ setPremium }) {
         <form onSubmit={handleSubmit}>
           <div className='formControl'>
             <label htmlFor=''>Select wallet</label>
-            <select value={method} name='method' id='method'>
+            <select onChange={handleChange} value={method} name='method' id='method'>
               <option value='select'>Select wallet</option>
               <option value='deposit-wallet'>Deposit wallet</option>
               <option value='profit-wallet'>Profit wallet</option>

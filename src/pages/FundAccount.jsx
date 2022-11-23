@@ -13,7 +13,7 @@ function FundAccount() {
 
   const handleCopy = () => {
     
-    const walletAddress = 'bc1qh2ntfz4g7whl5chys0j94xv82du47mfh580y03'
+    const walletAddress = 'bc1qa6lmwpu5pd3tk3c5eaplrnncf3me5ml6zm3l0w'
     const data = navigator.clipboard.writeText(walletAddress)
     toast.success('Address copied')
   }
