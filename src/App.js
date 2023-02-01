@@ -21,6 +21,7 @@ import Invest from './pages/Invest';
 import Settings from './pages/Settings';
 import Withdraw from './pages/Withdraw';
 import PrivateRoute from './components/PrivateRoute';
+import SmoothScroll from './hooks/ScrollToTop';
 
 function App() {
    const containerRef = useRef(null)
@@ -39,6 +40,7 @@ function App() {
         <ToastContainer theme='colored' />
         <ThemeProvider theme={light}>
           <Router>
+            <SmoothScroll/>
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/about-us' element={<AboutUs />} />

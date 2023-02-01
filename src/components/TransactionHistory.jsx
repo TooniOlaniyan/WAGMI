@@ -67,14 +67,6 @@ function TransactionHistory() {
       </DashboardTableHead>
       <DashboardTableLine />
 
-      {/* {!transactions && (
-        <NoDashboardDataTableBody>
-          <p>
-            You have no transaction with us <br /> yet. Why?
-          </p>
-        </NoDashboardDataTableBody>
-      )} */}
-
       {transactions && transactions.length > 0 ? (
         <DashboardTableBody>
           {transactions.map((transact) => (
