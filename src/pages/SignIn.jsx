@@ -149,7 +149,7 @@ const Main = styled.div`
     align-items: center;
     gap: 2rem;
     .line {
-      width: 45vw;
+      width: 15vw;
       height: 1.6px;
       background-color: ${({ theme }) => theme.gray};
       opacity: 0.6;
@@ -162,7 +162,7 @@ const Main = styled.div`
   .header {
     .head {
       font-size: 50px;
-      font-weight: 400;
+      font-weight: 600;
     }
   }
   .logoContainer {
@@ -220,7 +220,7 @@ const Main = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 30vw;
+    width: 40vw;
     @media screen and (max-width: 890px) {
       width: 95vw;
     }
@@ -256,6 +256,8 @@ const Main = styled.div`
       }
       label {
         color: ${({ theme }) => theme.bgRed};
+        font-size: 18px;
+        font-weight: 600;
       }
       input,
       select {

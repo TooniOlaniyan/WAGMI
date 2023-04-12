@@ -140,6 +140,7 @@ const Content = styled.div`
       align-items: center;
       border-radius: 1rem;
       padding: 2rem 3rem;
+      width: 18rem;
       background-color: ${({ theme }) => theme.bgBlue};
       position: relative;
       @media screen and (max-width: 890px) {
@@ -183,6 +184,7 @@ const Content = styled.div`
       align-items: center;
       border-radius: 1rem;
       padding: 2rem 3rem;
+      width: 18rem;
       background-color: ${({ theme }) => theme.gray};
       position: relative;
       @media screen and (max-width: 890px) {
@@ -226,6 +228,7 @@ const Content = styled.div`
       align-items: center;
       border-radius: 1rem;
       padding: 2rem 3rem;
+      width: 18rem;
       background-color: ${({ theme }) => theme.bgRed};
       position: relative;
       @media screen and (max-width: 890px) {

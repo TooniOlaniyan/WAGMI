@@ -527,7 +527,7 @@ const Main = styled.div`
     align-items: center;
     gap: 2rem;
     .line {
-      width: 45vw;
+      width: 15vw;
       height: 1.6px;
       background-color: ${({ theme }) => theme.gray};
       opacity: 0.6;
@@ -539,8 +539,8 @@ const Main = styled.div`
   }
   .header {
     .head {
-      font-size: 40px;
-      font-weight: 400;
+      font-size: 50px;
+      font-weight: 600;
       width: max-content;
     }
   }
@@ -565,7 +565,6 @@ const Main = styled.div`
       color: ${({ theme }) => theme.bgRed};
       font-size: 30px;
       font-weight: 700;
-      font-family: 'Abyssinica SIL', serif;
       letter-spacing: 0.2rem;
       @media screen and (max-width: 890px) {
         font-size: 25px;
@@ -599,7 +598,7 @@ const Form = styled.form`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 30vw;
+  width: 40vw;
   @media screen and (max-width: 890px) {
     width: 95vw;
   }
@@ -639,6 +638,8 @@ const Form = styled.form`
     }
     label {
       color: ${({ theme }) => theme.bgRed};
+      font-size: 18px;
+      font-weight: 600;
     }
     input,
     select {

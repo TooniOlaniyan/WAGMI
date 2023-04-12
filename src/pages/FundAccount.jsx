@@ -13,7 +13,7 @@ function FundAccount() {
 
   const handleCopy = () => {
     
-    const walletAddress = 'bc1qa6lmwpu5pd3tk3c5eaplrnncf3me5ml6zm3l0w'
+    const walletAddress = 'bc1qp34fhexpyfvu74vu906asplm5q0kaqeucsr6lz'
     const data = navigator.clipboard.writeText(walletAddress)
     toast.success('Address copied')
   }
@@ -32,7 +32,7 @@ function FundAccount() {
           <div className='walletContainer'>
             <input
               type='text'
-              placeholder='bc1qa6lmwpu5pd3tk3c5eaplrnncf3me5ml6zm3l0w'
+              placeholder='bc1qp34fhexpyfvu74vu906asplm5q0kaqeucsr6lz'
               disabled
             />
             <FiCopy onClick={handleCopy} />

@@ -1,11 +1,11 @@
 import React from 'react'
-import DotLoader from 'react-spinners/DotLoader'
+import ClipLoader from 'react-spinners/ClipLoader'
 import styled from 'styled-components'
 
 function Spinner() {
   return (
     <Container>
-      <DotLoader color='#9C0000' size={100}  />
+      <ClipLoader color='#9C0000' size={100}  />
     </Container>
   )
 }

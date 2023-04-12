@@ -118,9 +118,9 @@ const Main = styled.div`
     }
     .logo {
       color: ${({ theme }) => theme.bgRed};
-      font-size: 23px;
+      font-size: 25px;
       font-weight: 700;
-      font-family: 'Abyssinica SIL', serif;
+      /* font-family: 'Abyssinica SIL', serif; */
       letter-spacing: 0.2rem;
       @media screen and (max-width: 890px) {
         font-size: 15px;
@@ -173,7 +173,7 @@ const Middle = styled.div`
   a,p {
     text-decoration: none;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 19px;
     color: ${({ theme }) => theme.text1};
   }
 `

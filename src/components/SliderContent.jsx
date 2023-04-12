@@ -30,7 +30,7 @@ const Main = styled.div`
     width: 90vw;
   }
   .top {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 2.3rem;
     letter-spacing: 0.3rem;

@@ -49,7 +49,7 @@ const Text = styled.div`
     gap: 3rem;
   }
   p {
-    font-size: 17px;
+    font-size: 20px;
     line-height: 2.5rem;
     font-weight: 500;
     color: ${({ theme }) => theme.text4};

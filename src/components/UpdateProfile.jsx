@@ -173,10 +173,13 @@ const Edit = styled.div`
       gap: 1rem;
       flex-direction: column;
       .editable {
-        color: ${({ theme }) => theme.bgBlue};
+        color: ${({ theme }) => theme.gray};
+        font-size: 15px;
+        font-weight: 600;
       }
       label {
         font-size: 15px;
+        font-weight: 600;
         color: ${({ theme }) => theme.gray};
       }
 

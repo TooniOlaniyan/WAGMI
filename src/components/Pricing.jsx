@@ -91,6 +91,7 @@ const Main = styled.div`
     p {
       color: ${({ theme }) => theme.gray};
       width: 70%;
+      font-size: 20px;
       text-align: center;
       margin-top: 1rem;
       @media screen and (max-width: 890px) {

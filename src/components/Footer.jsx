@@ -118,7 +118,7 @@ const Details = styled.div`
     color: ${({ theme }) => theme.bgBlue};
   }
   .title {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     color: ${({ theme }) => theme.gray};
   }
@@ -165,6 +165,7 @@ const Links = styled.div`
   }
   p {
     color: ${({ theme }) => theme.gray};
+    font-size: 20px;
   }
 `
 const Address = styled.div`
