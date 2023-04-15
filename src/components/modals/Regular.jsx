@@ -70,9 +70,9 @@ function Regular({ setRegular }) {
     }
     setLoading(true)
     
-    if(amount >=5000 && amount <= 49999){
+    if(amount >=2000 && amount <= 19999){
        if(method ==='deposit-wallet' || method === 'profit-wallet'){
-        if(userData.deposit > 5000 || userData.profit > 5000){
+        if(userData.deposit > 2000 || userData.profit > 2000){
             try {
               const docRef = await addDoc(
                 collection(db, 'investments'),
@@ -99,7 +99,7 @@ function Regular({ setRegular }) {
 
        }
     }else{
-      toast.error('Investment has to be more than $5000 and less than $49,999')
+      toast.error('Investment has to be more than $2000 and less than $19,999')
       setLoading(false)
     }
     
@@ -123,10 +123,10 @@ function Regular({ setRegular }) {
         </div>
         <div className='minMax'>
           <p>
-            <AiOutlineCheck /> Min. deposit: $5000
+            <AiOutlineCheck /> Min. deposit: $2,000
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $49,999
+            <AiOutlineCheck /> Max. deposit: $19,999
           </p>
         </div>
         <form onSubmit={handleSubmit}>

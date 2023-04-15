@@ -67,9 +67,9 @@ function Diamond({ setDiamond }) {
       timestamp: serverTimestamp(),
     }
     setLoading(true)
-     if(amount>=100000){
+     if(amount>=50000){
          if (method === 'deposit-wallet' || method === 'profit-wallet') {
-           if (userData.deposit > 100000 || userData.profit > 100000) {
+           if (userData.deposit > 50000 || userData.profit > 50000) {
              try {
                const docRef = await addDoc(
                  collection(db, 'investments'),
@@ -92,7 +92,7 @@ function Diamond({ setDiamond }) {
            setLoading(false)
          }
      }else{
-      toast.error('Investment cannot be less than $100,000')
+      toast.error('Investment cannot be less than $50,000')
       setLoading(false)
      }
   }
@@ -111,7 +111,7 @@ function Diamond({ setDiamond }) {
         </div>
         <div className='minMax'>
           <p>
-            <AiOutlineCheck /> Min. deposit: $100,000
+            <AiOutlineCheck /> Min. deposit: $50,000
           </p>
           <p>
             <AiOutlineCheck /> Max. deposit: $Max

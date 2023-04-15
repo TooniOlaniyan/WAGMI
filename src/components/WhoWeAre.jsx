@@ -139,7 +139,6 @@ const Peoples = styled.div`
       width: 15rem;
       height: 15rem;
       overflow: hidden;
-      border-radius: 50%;
       img {
         width: 100%;
         height: 100%;

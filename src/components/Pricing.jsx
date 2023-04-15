@@ -16,30 +16,30 @@ function Pricing() {
       <Card>
         <CardContent>
           <p className='head'>Regular</p>
-          <p className='price'>$5000 - $49,999</p>
+          <p className='price'>$2,000 - $19,999</p>
           <p>
-            <AiOutlineCheck /> Min. deposit: $5000{' '}
+            <AiOutlineCheck /> Min. deposit: $2,000{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $49,999{' '}
+            <AiOutlineCheck /> Max. deposit: $19,999{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. return: 350% + Capital{' '}
+            <AiOutlineCheck /> Max. return: 150% + Capital{' '}
           </p>
           <Link style={{textDecoration: 'none'}} to='sign-in' >
           <button>Invest Now</button></Link>
         </CardContent>
         <CardContentTwo>
           <p className='head'>Premium</p>
-          <p className='price'>$50,000 - $99,999</p>
+          <p className='price'>$20,000 - $49,999</p>
           <p>
-            <AiOutlineCheck /> Min. deposit: $50000{' '}
+            <AiOutlineCheck /> Min. deposit: $20000{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $99,999{' '}
+            <AiOutlineCheck /> Max. deposit: $49,999{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. return: 350% + Capital{' '}
+            <AiOutlineCheck /> Max. return: 160% + Capital{' '}
           </p>
           <Link style={{textDecoration: 'none'}} to='sign-in' >
           <button>Invest Now</button></Link>
@@ -47,15 +47,15 @@ function Pricing() {
         </CardContentTwo>
         <CardContentThree>
           <p className='head'>Diamond</p>
-          <p className='price'>$100,000 - Max</p>
+          <p className='price'>$50,000 - Max</p>
           <p>
-            <AiOutlineCheck /> Min. deposit: $100,000{' '}
+            <AiOutlineCheck /> Min. deposit: $50,000{' '}
           </p>
           <p>
             <AiOutlineCheck /> Max. deposit: $Max{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. return: 350% + Capital{' '}
+            <AiOutlineCheck /> Max. return: 200% + Capital{' '}
           </p>
           <Link style={{textDecoration: 'none'}} to='sign-in' >
           <button>Invest Now</button></Link>

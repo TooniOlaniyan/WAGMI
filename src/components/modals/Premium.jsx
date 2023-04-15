@@ -66,9 +66,9 @@ function Premium({ setPremium }) {
         timestamp: serverTimestamp(),
       }
       setLoading(true)
-      if(amount >=50000 && amount <=99999){
+      if(amount >=20000 && amount <=49999){
        if (method === 'deposit-wallet' || method === 'profit-wallet') {
-         if (userData.deposit > 50000 || userData.profit > 50000) {
+         if (userData.deposit > 20000 || userData.profit > 20000) {
            try {
              const docRef = await addDoc(
                collection(db, 'investments'),
@@ -91,7 +91,7 @@ function Premium({ setPremium }) {
          setLoading(false)
        }
       }else{
-        toast.error('Investments must be more than $50000 and less than $99,999')
+        toast.error('Investments must be more than $20000 and less than $49,999')
         setLoading(false)
       }
     }
@@ -110,10 +110,10 @@ function Premium({ setPremium }) {
         </div>
         <div className='minMax'>
           <p>
-            <AiOutlineCheck /> Min. deposit: $50,000
+            <AiOutlineCheck /> Min. deposit: $20,000
           </p>
           <p>
-            <AiOutlineCheck /> Max. deposit: $99,999
+            <AiOutlineCheck /> Max. deposit: $49,999
           </p>
         </div>
         <form onSubmit={handleSubmit}>

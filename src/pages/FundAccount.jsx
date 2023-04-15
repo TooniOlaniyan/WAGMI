@@ -37,6 +37,13 @@ function FundAccount() {
             />
             <FiCopy onClick={handleCopy} />
           </div>
+          <div className='note'>
+            <p>
+              Please note that the company is not responsible for the loss of
+              your funds if you send another cryptocurrency to this address that
+              is selected for you.
+            </p>
+          </div>
           <div onClick={() => setProof(true)} className='proof'>
             <p>Proof of payment</p>
           </div>
@@ -90,6 +97,14 @@ const Content = styled.div`
       font-size: 30px;
       font-weight: 700;
       color: ${({ theme }) => theme.bgBlue};
+    }
+  }
+  .note {
+    p {
+      font-size: 16px;
+      @media screen and (max-width: 890px) {
+        font-size: 15px;
+      }
     }
   }
   .text {
@@ -160,7 +175,6 @@ const Content = styled.div`
       font-size: 19px;
       color: ${({ theme }) => theme.bgRed};
       font-weight: 600;
-      
     }
   }
 `

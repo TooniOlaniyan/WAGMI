@@ -83,7 +83,7 @@ const CardContent = styled.div`
   flex: 1;
   height: 20rem;
   width: 20rem;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: ${({ theme }) => theme.text1};
 
   .number {
@@ -133,7 +133,7 @@ const CardContentTwo = styled.div`
   flex: 1;
   height: 20rem;
   width: 20rem;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: ${({ theme }) => theme.text1};
   .number {
     border: 3px solid ${({ theme }) => theme.bgBlue};
@@ -182,7 +182,7 @@ const CardContentThree = styled.div`
   flex: 1;
   height: 20rem;
   width: 20rem;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   color: ${({ theme }) => theme.text1};
   .number {
     border: 3px solid ${({ theme }) => theme.bgRed};
