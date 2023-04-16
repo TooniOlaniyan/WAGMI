@@ -39,7 +39,7 @@ function Pricing() {
             <AiOutlineCheck /> Max. deposit: $49,999{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. return: 160% + Capital{' '}
+            <AiOutlineCheck /> Max. return: 175% + Capital{' '}
           </p>
           <Link style={{textDecoration: 'none'}} to='sign-in' >
           <button>Invest Now</button></Link>

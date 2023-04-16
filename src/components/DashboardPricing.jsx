@@ -48,7 +48,7 @@ function DashboardPricing() {
             <AiOutlineCheck /> Max. deposit: $49,999{' '}
           </p>
           <p>
-            <AiOutlineCheck /> Max. return: 160% + Capital{' '}
+            <AiOutlineCheck /> Max. return: 175% + Capital{' '}
           </p>
 
           <button onClick={() => setPremium(true)}>Invest Now</button>
