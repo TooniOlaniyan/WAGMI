@@ -50,34 +50,16 @@ function SignIn() {
   return (
     <Main>
       <div className='logoContainer'>
-        <img src={logo} alt='' />
+        {/* <img src={logo} alt='' /> */}
         <Link to='/'>
-          <p className='logo'>Trade Republican</p>
+          <p className='logo'>WAGMI</p>
         </Link>
       </div>
       <div className='header'>
-        <p className='head'>Log In</p>
+        <p className='head'>Get back in</p>
       </div>
       <div className='flag'>
         <div className='line'></div>
-        <svg
-          width='40'
-          height='20'
-          viewBox='0 0 40 20'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <rect width='40' height='20' fill='#8F1B11'></rect>
-          <rect y='11.1111' width='40' height='2.22223' fill='white'></rect>
-          <rect y='15.5556' width='40' height='2.22223' fill='white'></rect>
-          <rect y='6.66669' width='40' height='2.22223' fill='white'></rect>
-          <rect y='2.22223' width='40' height='2.22223' fill='white'></rect>
-          <rect width='15' height='8.88891' fill='#1B2F5A'></rect>
-          <path
-            d='M7.5 2L8.06129 3.72746L9.87764 3.72746L8.40818 4.79509L8.96946 6.52254L7.5 5.45492L6.03054 6.52254L6.59182 4.79508L5.12236 3.72746L6.93872 3.72746L7.5 2Z'
-            fill='white'
-          ></path>
-        </svg>
         <div className='line'></div>
       </div>
       <Form onSubmit={handleSubmit} >
@@ -168,7 +150,8 @@ const Main = styled.div`
   .logoContainer {
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
+    gap:1rem;
     /* background-color: green; */
     a {
       text-decoration: none;

@@ -5,16 +5,15 @@ import SliderContent from './SliderContent'
 import testUser from '../assets/testUser.png'
 import {BsFillArrowLeftCircleFill} from 'react-icons/bs'
 import { BsFillArrowRightCircleFill , BsStarFill } from 'react-icons/bs'
-import hero1 from '../assets/hero1.jpg'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { Keyboard, Scrollbar, Navigation, Pagination } from 'swiper'
-import smith from '../assets/smith.jpg'
-import molly from '../assets/molly.jpg'
-import jacob from '../assets/jacob.jpg'
-import katherine from '../assets/katherine.jpg'
+import guyitaro from '../assets/guyitaro.jpg'
+import gyokko from '../assets/gyokko.png'
+import kokushibo from '../assets/kokushibo.png'
+import akaza from '../assets/akaza.jpg'
 
 
 
@@ -59,29 +58,29 @@ function Reviews() {
             <SwiperSlide>
               <SliderContent
                 testimony='At first i was a bit skeptical about this, but after my first investment, i got my profits and my capital investment sent to my wallet immediately.'
-                src={katherine}
-                name='Katherine Cooke'
+                src={akaza}
+                name='Akaza'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony='This platform is really made for people like us. Trade republican gave me a second chance, and i took it and never regreted. '
-                src={jacob}
-                name='Jacob Ledger'
+                testimony='This platform is really made for people like us. 234pay gave me a second chance, and i took it and never regreted. '
+                src={kokushibo}
+                name='Kokushibo'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
-                testimony="Trade republican has made me and my family financially stable admist our country's inflation. i'd advice y'all take part in it's investment plans."
-                src={smith}
-                name='Smith Stoll'
+                testimony="This platform has made me and my family financially stable admist our country's hyperInfation. i'd advice y'all take part in it's investment plans."
+                src={guyitaro}
+                name='Guyitaro'
               />
             </SwiperSlide>
             <SwiperSlide>
               <SliderContent
                 testimony="It an easy platform to use, and the payments are fast and hassle free."
-                src={molly}
-                name='Molly Ford'
+                src={gyokko}
+                name='Gyokko'
               />
             </SwiperSlide>
           </Swiper>

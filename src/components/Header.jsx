@@ -25,9 +25,9 @@ function Header() {
       <Main data-scroll-section>
         {isOpened && <MobileNav isOpened={isOpened} />}
         <div className='logoContainer'>
-          <img src={logo} alt='' />
+          {/* <img src={logo} alt='' /> */}
           <Link to='/'>
-            <p className='logo'>Trade Republican</p>
+            <p className='logo'>WAGMI</p>
           </Link>
         </div>
         {/* middle */}
@@ -101,10 +101,15 @@ const Main = styled.div`
   }
   .logoContainer {
     display: flex;
+    gap:1rem;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
     flex: 1;
-    /* background-color: green; */
+    // background-color: green; 
+    @media screen and (max-width: 890px) {
+      flex:0;
+    }
+    
     a {
       text-decoration: none;
     }

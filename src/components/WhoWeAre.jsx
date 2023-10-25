@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import whoAre from '../assets/whoAre.jpg'
-import miller from '../assets/miller.jpg'
-import steve from '../assets/steve.jpg'
-import edward from '../assets/edward.jpg'
+import whoAre from '../assets/whoAre.png'
+import sasuke from '../assets/sasuke.png'
+import itachi from '../assets/itachi.jpg'
+import tanjiro from '../assets/tanjiro.png'
 
 function WhoWeAre() {
   return (
@@ -15,17 +15,16 @@ function WhoWeAre() {
         <Text>
           <h2>ABOUT US</h2>
           <p>
-            Trade Republican is a National success and trust worthy Crypto
-            currency investment platform with the most convenient trading
-            interface. Instant access to more than 100 assets of the world's
-            leading companies. We offer lucrative crypto currency investments,
-            Our high profits are achieved through the use of modern systems and
-            technologies for crypto currency trading. The company cooperates
-            with the largest firms in several countries (United Kingdom, United
-            States of America, Australia, Canada, Germany, Japan and China)
-            together we have formed a large (Global) network that has high
-            performance and strong potentials.
+          Our Vision: Forging a Future of Financial Freedom
+
+We are more than a fintech company; we are architects of your dreams. Our mission is to empower your BTC to do more than you ever imagined.
+
+Innovation Unleashed: Pioneering fintech innovations, we're rewriting the rules of finance.
+Partners in Prosperity: Your goals are our compass; we navigate towards your financial dreams.
+Global Community: Dive into a world where investors are united in progress.
+Discover the WAGMI story - where dreams meet action.
           </p>
+
         </Text>
       </div>
 
@@ -35,23 +34,23 @@ function WhoWeAre() {
           <div className='container'>
             <div className='imageContainer'>
               {' '}
-              <img src={miller} alt='' />
+              <img src={sasuke} alt='' />
             </div>
-            <p className='name'>Jason Miller</p>
+            <p className='name'>Uchia Sasuke-kan</p>
             
           </div>
           <div className='container'>
             <div className='imageContainer'>
-              <img src={steve} alt='' />
+              <img src={itachi} alt='' />
             </div>
-            <p className='name'>Steve Bannon</p>
+            <p className='name'>Uchia Itachi-kan</p>
             
           </div>
           <div className='container'>
             <div className='imageContainer'>
-              <img src={edward} alt='' />
+              <img src={tanjiro} alt='' />
             </div>
-            <p className='name'>Edward Dowd</p>
+            <p className='name'>Tanjiro Kamado</p>
           </div>
         </div>
       </Peoples>

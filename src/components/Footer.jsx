@@ -8,11 +8,12 @@ function Footer() {
     <Main data-scroll-section>
       <Top>
         <Details>
-          <p className='head'>Trade Republican</p>
+          <p className='head'>WAGMI</p>
           <p className='title'>
-            Trade Republican is a conservative investment platform for elite
-            Republicans that provides you with the most necessary features that
-            will make your experience better.
+          Discover the Magic of BTC with WAGMI
+
+Tired of your Bitcoin just gathering digital dust? Join WAGMI and turn 
+it into a source of joy and growth. It's as easy as investing, watching, and smiling!
           </p>
           <Socials>
             <div className='social'>
@@ -39,30 +40,13 @@ function Footer() {
       </Top>
       <div className='flag'>
         <div className='line'></div>
-        <svg
-          width='40'
-          height='20'
-          viewBox='0 0 40 20'
-          fill='none'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <rect width='40' height='20' fill='#8F1B11'></rect>
-          <rect y='11.1111' width='40' height='2.22223' fill='white'></rect>
-          <rect y='15.5556' width='40' height='2.22223' fill='white'></rect>
-          <rect y='6.66669' width='40' height='2.22223' fill='white'></rect>
-          <rect y='2.22223' width='40' height='2.22223' fill='white'></rect>
-          <rect width='15' height='8.88891' fill='#1B2F5A'></rect>
-          <path
-            d='M7.5 2L8.06129 3.72746L9.87764 3.72746L8.40818 4.79509L8.96946 6.52254L7.5 5.45492L6.03054 6.52254L6.59182 4.79508L5.12236 3.72746L6.93872 3.72746L7.5 2Z'
-            fill='white'
-          ></path>
-        </svg>
+      
         <div className='line'></div>
       </div>
 
       <div className='copyright'>
         <p>
-          &#169; {year} <span>Trade Republican</span> copyright. All rights
+          &#169; {year} <span>WAGMI</span> copyright. All rights
           reserved
         </p>
       </div>

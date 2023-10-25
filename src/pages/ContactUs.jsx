@@ -40,6 +40,9 @@ function ContactUs() {
       <Header />
       <Contact>
         <h2>Contact us</h2>
+        <p>  Lets Connect Got questions, suggestions, 
+        or need assistance? Were here to help. 
+        Reach out to our friendly team at 234pay and lets connect. </p>
         <Form ref={formRef} onSubmit={handleSubmit}>
             <div className='form-control'>
               <input

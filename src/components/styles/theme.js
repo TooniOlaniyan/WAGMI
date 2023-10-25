@@ -1,8 +1,8 @@
 export const light = {
-  body: '#f9f9fb',
-  bgRed: '#9C0000',
-  bgBlue: '#111827',
-  text1: '#111827',
+  body: '#040D12',
+  bgRed: '#008170',
+  bgBlue: '#352F44',
+  text1: '#5C5470',
   text2: '#fff',
   text3: '#000',
   text4: '#fdece8',
@@ -11,7 +11,7 @@ export const light = {
 }
 
 export const dark = {
-  body: '#141d2f',
+  body: '#040D12',
   bgColor1: '#1e2a47',
   bgColor2: '#141d2f',
   text1: '#fff',
