@@ -62,6 +62,7 @@ const Text = styled.div`
     color:${({ theme }) => theme.bgRed};
     font-size:70px;
     line-height:2.8rem;
+    font-weight: 900;
   }
   button {
     width: 35%;

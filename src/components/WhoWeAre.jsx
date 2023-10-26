@@ -13,7 +13,7 @@ function WhoWeAre() {
           <img src={whoAre} alt='' />
         </Image>
         <Text>
-          <h2>ABOUT US</h2>
+          <h2>ABOUT <br /> US</h2>
           <p>
           Our Vision: Forging a Future of Financial Freedom
 
@@ -90,11 +90,12 @@ const Text = styled.div`
   flex-direction: column;
   gap: 2rem;
   h2 {
-    font-size: 19px;
+    font-size:70px;
     letter-spacing: 0.1rem;
     color: ${({ theme }) => theme.gray};
     font-family: 'Abyssinica SIL', serif;
     font-weight: 900;
+    line-height:2.8rem;
   }
   p {
     font-size: 19px;
